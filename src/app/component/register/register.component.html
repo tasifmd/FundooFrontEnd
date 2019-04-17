@@ -1,13 +1,12 @@
 <div class = "main" fxLayout="column" fxLayoutAlign="center center" >
   <mat-card class = "matCard" >
-      <mat-card-header>
-        <mat-card-title class="matCardTitle" fxLayoutAlign="center center">
-          <h2 class = "headertwo">FundooNotes</h2>
-        </mat-card-title>
-        <mat-card-subtitle class = "matCardSubTitle" fxLayoutAlign="center center">
-          <h2>Register</h2>
-        </mat-card-subtitle>
-      </mat-card-header>
+      <mat-card-title class="matCardTitle" fxLayoutAlign="center center">
+        <h2 class = "headertwo">FundooNotes</h2>
+      </mat-card-title>
+      <mat-card-subtitle class = "matCardSubTitle" fxLayoutAlign="center center">
+        <h2>Register</h2>
+      </mat-card-subtitle>
+      
       <div class="example-container">
         <form>
         <div>
@@ -39,7 +38,8 @@
           </mat-form-field>
         </div>
         <div class="buttonRegister">
-          <button mat-raised-button color="primary">Register</button>
+          <button mat-raised-button color="primary" id="register">Register</button>
+          <button mat-raised-button color="primary" id="login" routerLink='/login'> Login </button>
         </div>
       
       </form>

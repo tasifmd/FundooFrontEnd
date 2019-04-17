@@ -1,17 +1,21 @@
-.headertwo{
-    color: brown;
-}
 .matCard{
-    width: 50%;
-    // height: 700px;
-    padding-top: 0%
-}
+  
+    width:25%;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: 3%;
+    border-radius: 02%;
+    box-shadow: 0 8px 16px 0 rgba(182, 33, 33, 0.459); 
+  
+  }
 .input-style{
     width: 100%;
 }
-.matCardTitle{
-    width:350%;
+#register{
+    margin-left: 10%;
 }
-.matCardSubTitle{
-    width:350%;
+#login{
+   margin-left: 100px;
 }
