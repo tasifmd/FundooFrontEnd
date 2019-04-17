@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { LoginComponent } from './component/login/login.component';
 
@@ -28,7 +28,8 @@ import { LoginComponent } from './component/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ShowHidePasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent],
