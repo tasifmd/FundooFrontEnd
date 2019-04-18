@@ -8,9 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { LoginComponent } from './component/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { LoginComponent } from './component/login/login.component';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    ShowHidePasswordModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
