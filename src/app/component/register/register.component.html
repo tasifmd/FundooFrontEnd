@@ -12,33 +12,33 @@
         <div>
           <mat-form-field  appearance="outline" class="input-style">
             <mat-label>Name</mat-label>
-            <input type="text" matInput placeholder="Enter your name">
+            <input type="text" matInput placeholder="Enter your name" formControlName="name">
             <mat-icon matSuffix> sentiment_satisfied_alt</mat-icon>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Enter your email" class="input-style">
-            <mat-icon matSuffix> email</mat-icon>
+            <input type="email" matInput placeholder="Enter your email" formControlName="email">
+            <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Mobile</mat-label>
-            <input type="text" matInput placeholder="Enter your mobile number" class="input-style">
+            <input type="text" matInput placeholder="Enter your mobile number" formControlName="mobileNumber">
             <mat-icon matSuffix>call</mat-icon>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Password</mat-label>
-            <input type="password" matInput placeholder="Enter your password">
-            <mat-icon matSuffix>visibility_off</mat-icon>
+            <input type="password" matInput placeholder="Enter your password" formControlName="password" [type]="!hide ? 'password' : 'text'" >
+            <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
         </div>
         <div class="buttonRegister">
-          <button mat-raised-button color="primary" id="register">Register</button>
+          <button mat-raised-button color="primary" id="register" (click)="onRegister()">Register</button>
           <button mat-raised-button color="primary" id="login" routerLink='/login'> Login </button>
         </div>
       

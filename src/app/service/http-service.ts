@@ -5,20 +5,20 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class HttpService {
-    baseurl = environment.baseUrl
+    baseurl = environment.baseUrl;
   
     constructor(private http: HttpClient) { }
     
-    public postRequest(baseurl :any, data: any ):any{
-      return this.http.post(baseurl,data);
+    public postRequest(url :any, data: any ):any{
+      return this.http.post(this.baseurl + url,data);
     }
-    public putRequest(baseurl :any, data: any ):any{
-      return this.http.put(baseurl,data);
+    public putRequest(url :any, data: any ):any{
+      return this.http.put(this.baseurl + url,data);
     }
-    public deleteRequest(baseurl :any):any{
-      return this.http.delete(baseurl);
+    public deleteRequest(url :any):any{
+      return this.http.delete(this.baseurl + url);
     }
-    public getRequest(baseurl :any):any{
-  return this.http.get(baseurl);
+    public getRequest(url :any):any{
+  return this.http.get(this.baseurl + url);
     }
 }
