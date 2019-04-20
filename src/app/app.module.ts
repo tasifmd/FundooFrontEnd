@@ -12,12 +12,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { LoginComponent } from './component/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotpasswordComponent
   ],
 
   imports: [
@@ -31,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

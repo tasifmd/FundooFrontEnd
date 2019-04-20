@@ -5,9 +5,8 @@ import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, Mat
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
 @NgModule({
     declarations:[],
     imports:[
@@ -27,6 +26,7 @@ import { CommonModule } from '@angular/common';
         MatMenuModule,
         MatChipsModule,
         MatTooltipModule, MatGridListModule,
+        FormsModule
     ],
     exports:[
         BrowserModule,

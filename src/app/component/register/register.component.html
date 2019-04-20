@@ -8,32 +8,32 @@
       </mat-card-subtitle>
       
       <div class="example-container">
-        <form>
+        <form [formGroup]="registerForm">
         <div>
           <mat-form-field  appearance="outline" class="input-style">
             <mat-label>Name</mat-label>
-            <input type="text" matInput placeholder="Enter your name" formControlName="name">
+            <input type="text" matInput placeholder="Enter your name" formControlName="name" [(ngModel)]="user.name" required>
             <mat-icon matSuffix> sentiment_satisfied_alt</mat-icon>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Enter your email" formControlName="email">
+            <input type="email" matInput placeholder="Enter your email" formControlName="email" [(ngModel)]="user.email" required>
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Mobile</mat-label>
-            <input type="text" matInput placeholder="Enter your mobile number" formControlName="mobileNumber">
+            <input type="text" matInput placeholder="Enter your mobile number" formControlName="mobileNumber" [(ngModel)]="user.mobileNumber" required>
             <mat-icon matSuffix>call</mat-icon>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline" class="input-style">
             <mat-label>Password</mat-label>
-            <input type="password" matInput placeholder="Enter your password" formControlName="password" [type]="!hide ? 'password' : 'text'" >
+            <input type="password" matInput placeholder="Enter your password" [type]="!hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="user.password" required>
             <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
         </div>
