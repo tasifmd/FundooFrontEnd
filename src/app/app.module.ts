@@ -14,6 +14,7 @@ import { LoginComponent } from './component/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
+import { SetForgotPasswordComponent } from './component/set-forgot-password/set-forgot-password.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ForgotpasswordComponent } from './component/forgotpassword/forgotpasswo
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    SetForgotPasswordComponent
   ],
 
   imports: [
