@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { SetForgotPasswordComponent } from './component/set-forgot-password/set-forgot-password.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { SetForgotPasswordComponent } from './component/set-forgot-password/set-
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
