@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserModel } from 'src/app/model/user-model';
 import { HttpService } from 'src/app/service/http-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,10 +17,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
       {
-        'name':this.user.name,
-        'email':this.user.email,
-        'password':this.user.password,
-        'mobileNumber':this.user.mobileNumber
+        'name':new FormControl(this.user.name,[Validators.required]),
+        'email':new FormControl(this.user.email,Validators.required),
+        'password':new FormControl(this.user.password,[Validators.required,Validators.minLength(6)]),
+        'mobileNumber':new FormControl(this.user.mobileNumber,[Validators.required])
       }
     )
 

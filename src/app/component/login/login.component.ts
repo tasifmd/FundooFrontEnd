@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginModel } from 'src/app/model/login-model';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpService } from 'src/app/service/http-service';
 import { MatSnackBar } from '@angular/material';
 
@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group(
       {
-        'email':this.user.email,
-        'password':this.user.password
+        'email':new FormControl(this.user.email,[Validators.required]),
+        'password':new FormControl(this.user.password,[Validators.required,Validators.minLength(6)])
       }
     )
   }

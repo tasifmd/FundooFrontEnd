@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/service/http-service';
 import { MatSnackBar } from '@angular/material';
 
@@ -19,7 +19,7 @@ export class ForgotpasswordComponent implements OnInit {
   ngOnInit() {
     this.forgotpasswordForm = this.formBuilder.group(
       {
-        'email':this.email
+        'email':new FormControl(this.email,[Validators.required])
       }
     )
   }

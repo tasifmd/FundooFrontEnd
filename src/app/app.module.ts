@@ -9,13 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { LoginComponent } from './component/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
-import { SetForgotPasswordComponent } from './component/set-forgot-password/set-forgot-password.component';
 import { RouterModule } from '@angular/router';
+import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,
     LoginComponent,
     ForgotpasswordComponent,
-    SetForgotPasswordComponent
+    ResetpasswordComponent
   ],
 
   imports: [
