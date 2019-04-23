@@ -3,7 +3,10 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { RouterModule } from '@angular/router';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -24,7 +28,8 @@ import { ResetpasswordComponent } from './component/resetpassword/resetpassword.
     RegisterComponent,
     LoginComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    DashboardComponent
   ],
 
   imports: [
@@ -38,6 +43,8 @@ import { ResetpasswordComponent } from './component/resetpassword/resetpassword.
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

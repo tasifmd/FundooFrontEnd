@@ -4,22 +4,27 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: 'register',
-    component:RegisterComponent
+    component : RegisterComponent
   },
   {
     path: 'login',
-    component:LoginComponent
+    component : LoginComponent
   },
   {
     path: 'forgotpassword',
-    component:ForgotpasswordComponent
+    component : ForgotpasswordComponent
   },
   {
     path: 'user/resetpassword/:token',
-    component:ResetpasswordComponent
+    component : ResetpasswordComponent
+  },
+  {
+    path: 'dashboard',
+    component : DashboardComponent
   }
   
 
