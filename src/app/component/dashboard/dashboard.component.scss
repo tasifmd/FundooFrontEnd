@@ -1,8 +1,23 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+}
 .title{
     margin: 15px;
     margin-left: 10px;
 }
 .search{
-    width: 75%;
+    width: 100%;
     margin-left: 75px;
+}
+#refresh{
+    margin-left: 10%;
+}
+#listgrid{
+    margin-left: -230px;
+    margin-top: -12px;
+}
+#settingbtn{
+    margin-left: -130pt;
+    margin-top: -10pt;
 }

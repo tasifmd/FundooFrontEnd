@@ -1,34 +1,50 @@
 <div class = "main">
-  <mat-toolbar class = "tool-bar" >
+  <mat-toolbar fxLayout="row" class = "tool-bar" >
     <div>
-      <button mat-icon-button fxLayoutAlign = "center center" >
+      <button mat-icon-button fxFlex="100" fxLayout="row" fxLayoutAlign = "center center" >
         <mat-icon>menu</mat-icon>
       </button>
     </div>
+
     <div>
-      <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" fxLayoutAlign = "center center" style="width:45px;height:45px">
+      <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" fxFlex="150" fxLayoutAlign = "center center" style="width:40px;height:40px">
     </div>
-    <div class = "title" fxLayoutAlign = "center center">
+
+    <div class = "title" fxFlex="10" fxLayoutAlign = "center center">
       <h1>FundooNotes</h1>
     </div>
-    <!-- <div fxLayout="row" fxLayoutAlign = "center center" class="search">
-      <mat-form-field appearance="fill">
-        <mat-label>Search</mat-label>
-        <input matInput placeholder="Search" type="search">
-        <button mat-icon-button>
-            <mat-icon>search</mat-icon>
+    
+    <div fxFlex="55" fxLayout="row" fxLayoutAlign="start start">
+      <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search">
+        <button mat-icon-button class="search-button">
+          <mat-icon matTooltip="Search">search</mat-icon>
         </button>
-        
+        <input fxFlex="90" [(ngModel)]="value" (keyup)="onKeyUp($event)" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window" autocomplete="off" />
       </mat-form-field>
-    </div> -->
-    <div fxFlex="65" fxLayoutAlign="start start">
-        <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search">
-          <button mat-icon-button class="search-button">
-            <mat-icon matTooltip="Search">search</mat-icon>
-          </button>
-          <input fxFlex="90" [(ngModel)]="value" (keyup)="onKeyUp($event)" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window" autocomplete="off" />
-        </mat-form-field>
-      </div>
-  </mat-toolbar>
+    </div>
 
+    <div fxFlex="25" class="settingbtn">
+      <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button mat-icon-button color="basic" id="listgrid" fxLayoutAlign = "start start" style="width:30px;height:30px">
+        <mat-icon>
+          <img isClicked src="../../../assets/baseline-grid_on-24px.svg" fxLayoutAlign = "start start"/>
+          <img isClicked *ngIf="isClicked == true" src="../../../assets/baseline-list-24px.svg"/>
+        </mat-icon>
+      </button>
+    </div>
+
+    <div>
+      <button mat-icon-button color="basic" id="settingbtn" fxLayoutAlign = "start start" style="width:30px;height:30px">
+        <mat-icon>
+          <img src="../../../assets/baseline-settings-20px.svg"/>
+        </mat-icon>
+      </button>
+
+    </div>
+  </mat-toolbar>
 </div>
