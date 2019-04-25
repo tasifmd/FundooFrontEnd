@@ -1,25 +1,34 @@
 <div class = "main">
   <mat-toolbar class = "tool-bar" >
     <div>
-      <button mat-icon-button (click)="snav.toggle()">
+      <button mat-icon-button fxLayoutAlign = "center center" >
         <mat-icon>menu</mat-icon>
       </button>
     </div>
     <div>
-      <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" style="width:45px;height:45px">
+      <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" fxLayoutAlign = "center center" style="width:45px;height:45px">
     </div>
-    <div class = "title">
+    <div class = "title" fxLayoutAlign = "center center">
       <h1>FundooNotes</h1>
     </div>
-    <div>
-      <mat-form-field appearance="outline" fxLayoutAlign = "center" class="search" style="margin-top:10pt;margin-bottom:10pt;" class="search">
-        <button mat-icon-button>
-          <mat-icon>search</mat-icon>
-        </button>
+    <!-- <div fxLayout="row" fxLayoutAlign = "center center" class="search">
+      <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input type="text" matInput placeholder="Search">
+        <input matInput placeholder="Search" type="search">
+        <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+        
       </mat-form-field>
-    </div>
+    </div> -->
+    <div fxFlex="65" fxLayoutAlign="start start">
+        <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search">
+          <button mat-icon-button class="search-button">
+            <mat-icon matTooltip="Search">search</mat-icon>
+          </button>
+          <input fxFlex="90" [(ngModel)]="value" (keyup)="onKeyUp($event)" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window" autocomplete="off" />
+        </mat-form-field>
+      </div>
   </mat-toolbar>
 
 </div>
