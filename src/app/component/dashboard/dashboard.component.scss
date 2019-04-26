@@ -1,6 +1,7 @@
 .main{
     display: flex;
     justify-content: space-between;
+    flex: 1
 }
 .title{
     margin: 15px;
@@ -19,5 +20,8 @@
 }
 #settingbtn{
     margin-left: -130pt;
-    margin-top: -10pt;
+    margin-top: -13pt;
+}
+#account{
+    margin-left: -100px;
 }

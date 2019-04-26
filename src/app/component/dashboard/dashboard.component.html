@@ -1,8 +1,8 @@
 <div class = "main">
   <mat-toolbar fxLayout="row" class = "tool-bar" >
     <div>
-      <button mat-icon-button fxFlex="100" fxLayout="row" fxLayoutAlign = "center center" >
-        <mat-icon>menu</mat-icon>
+      <button mat-icon-button fxFlex="100" fxLayout="row" fxLayoutAlign = "center center" (click)="snav.toggle()">
+        <mat-icon matTooltip="Main menu">menu</mat-icon>
       </button>
     </div>
 
@@ -44,7 +44,33 @@
           <img src="../../../assets/baseline-settings-20px.svg"/>
         </mat-icon>
       </button>
-
     </div>
+
+    <div>
+      <button mat-icon-button color="basic" id="account" fxFlex=35 fxLayoutAlign = "center center" style="width:45px;height:45px">
+        <mat-icon>
+          <img src="../../../assets/baseline-account_circle-24px.svg"/>
+        </mat-icon>
+      </button>
+    </div>
+
   </mat-toolbar>
+
 </div>
+
+<!-- <mat-sidenav-container>
+  
+  <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'">
+    <mat-nav-list>
+      <mat-list role="List">
+        <mat-icon class="menulist-icon">lightbulb_outline</mat-icon>
+        <span class="spantext">Notes</span>
+      </mat-list>
+      <mat-list role="List">
+        <mat-icon class="example-icon">notifications_none</mat-icon>
+        <span class="spantext">Remailder</span>
+      </mat-list>
+    </mat-nav-list>
+  </mat-sidenav>
+
+</mat-sidenav-container> -->
