@@ -6,7 +6,7 @@ import { MatInputModule, MatButtonModule, MatIconModule } from '@angular/materia
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { MatMenuModule} from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +45,7 @@ import { DashBoardComponent } from './component/dash-board/dash-board.component'
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatMenuModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

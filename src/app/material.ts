@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
         MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule, MatCheckboxModule,
         MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule,
         MatSnackBarModule,
+        MatMenuModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,FormsModule,CommonModule,
         MatRadioModule,

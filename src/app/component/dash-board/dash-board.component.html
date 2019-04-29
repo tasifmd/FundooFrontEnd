@@ -56,12 +56,20 @@
         </div>
 
         <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button>
+          <button mat-icon-button [matMenuTriggerFor]="accountmenu">
             <mat-icon style="font-size:25px">account_circle</mat-icon>
           </button>
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
+    <mat-menu #accountmenu="matMenu">
+      <mat-card>
+        <mat-icon>account_circle</mat-icon>
+        <mat-card-title>{{user.email}}</mat-card-title>
+        <button routerLink="/register" routerLinkActive="active">Add Account</button>
+        <button (click)="logout()">Log Out</button>
+      </mat-card>
+    </mat-menu>
   </div>
 
   <mat-divider></mat-divider>
@@ -89,7 +97,7 @@
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content class="sidenav">
-        <p>sdfdhhfdsfsdfsdf</p>
+        <p>Welcome to fundoo notes</p>
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
