@@ -33,13 +33,14 @@
         <div fxFlex="5" class="settingbtn" fxLayoutAlign="center center">
           <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
             <mat-icon>refresh</mat-icon>
-            <!-- <mat-icon>grid_on</mat-icon> -->
+            
           </button>
         </div>
 
         <div fxFlex="5" fxLayoutAlign="center center">
           <button mat-icon-button>
             <mat-icon style="font-size:25px">list</mat-icon>
+            <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
           </button>
         </div>
 
@@ -65,7 +66,7 @@
     <mat-menu #accountmenu="matMenu">
       <mat-card>
         <mat-icon>account_circle</mat-icon>
-        <mat-card-title>{{user.email}}</mat-card-title>
+        <!-- <mat-card-title>{{user.email}}</mat-card-title> -->
         <button routerLink="/register" routerLinkActive="active">Add Account</button>
         <button (click)="logout()">Log Out</button>
       </mat-card>
@@ -98,7 +99,7 @@
       </mat-sidenav>
       <mat-sidenav-content class="sidenav">
         <p>Welcome to fundoo notes</p>
-        <router-outlet></router-outlet>
+        <!-- <router-outlet></router-outlet> -->
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
