@@ -19,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { RouterModule } from '@angular/router';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { DashBoardComponent } from './component/dash-board/dash-board.component';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     LoginComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
-    DashboardComponent
+    DashBoardComponent
   ],
 
   imports: [

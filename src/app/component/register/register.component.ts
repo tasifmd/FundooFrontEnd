@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   user: UserModel = new UserModel();
   registerForm: FormGroup;
   constructor(private snackBar: MatSnackBar,private httpservice:HttpService,public formBuilder: FormBuilder) { }
-
+ 
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
       {

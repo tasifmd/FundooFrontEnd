@@ -1,0 +1,97 @@
+<div style="overflow: hidden;margin-left: -26px;">
+  <div style="margin-left: 15px;">
+    <mat-toolbar>
+
+      <mat-toolbar-row>
+
+        <div>
+          <button mat-icon-button fxFlex="110" fxLayout="row" fxLayoutAlign="center center" (click)="sidenav.toggle()">
+            <mat-icon matTooltip="Main menu">menu</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" fxFlex="180"
+            fxLayoutAlign="center center" style="width:40px;height:40px">
+        </div>
+
+        <div class="title" fxFlex="13" fxLayoutAlign="center center">
+          <h3>FundooNotes</h3>
+        </div>
+
+        <div fxFlex="55" fxLayout="row" fxLayoutAlign="center center">
+          <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search"
+            style="margin-left: 5%;width: 200%;">
+            <button mat-icon-button class="search-button">
+              <mat-icon matTooltip="Search">search</mat-icon>
+            </button>
+            <input fxFlex="90" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window"
+              autocomplete="off" />
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="5" class="settingbtn" fxLayoutAlign="center center">
+          <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
+            <mat-icon>refresh</mat-icon>
+            <!-- <mat-icon>grid_on</mat-icon> -->
+          </button>
+        </div>
+
+        <div fxFlex="5" fxLayoutAlign="center center">
+          <button mat-icon-button>
+            <mat-icon style="font-size:25px">list</mat-icon>
+          </button>
+        </div>
+
+        <div fxFlex="5" fxLayoutAlign="center center">
+          <button mat-icon-button>
+            <mat-icon style="font-size:25px">settings</mat-icon>
+          </button>
+        </div>
+
+        <div fxFlex="5" fxLayoutAlign="center center">
+          <button mat-icon-button>
+            <mat-icon style="font-size:25px">apps</mat-icon>
+          </button>
+        </div>
+
+        <div fxFlex="5" fxLayoutAlign="center center">
+          <button mat-icon-button>
+            <mat-icon style="font-size:25px">account_circle</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div>
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav style="width:15%;padding: 2%;" #sidenav mode="side">
+        <mat-nav-list class="navlist">
+          <mat-list>
+            <div>
+              <button mat-button>
+                <mat-icon>lightbulb_outline</mat-icon> Notes
+              </button>
+            </div>
+
+            <div>
+              <button mat-button>
+                <mat-icon>notifications_none</mat-icon> Remainder
+              </button>
+            </div>
+
+            <mat-divider></mat-divider>
+
+          </mat-list>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content class="sidenav">
+        <p>sdfdhhfdsfsdfsdf</p>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>
