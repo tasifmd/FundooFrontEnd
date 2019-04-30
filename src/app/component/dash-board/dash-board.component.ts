@@ -15,11 +15,13 @@ export class DashBoardComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
-    this.token = localStorage.getItem('token');
+    this.token = localStorage.getItem("token");
+    this.email = localStorage.getItem("email");
   }
 
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
     this.router.navigate(['/login']);
   }
 

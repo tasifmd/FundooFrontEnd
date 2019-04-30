@@ -1,4 +1,4 @@
-<div style="overflow: hidden;margin-left: -26px;">
+<div style="overflow: hidden;margin-left: -26px;" class="main">
   <div style="margin-left: 15px;">
     <mat-toolbar>
 
@@ -63,11 +63,21 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <mat-menu #accountmenu="matMenu">
-      <mat-card>
-        <mat-icon>account_circle</mat-icon>
+      <mat-card style="height: 80px;">
+        <div fxLayout="row">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <p fxLayout="row"> {{email}} </p>
+        <!-- <mat-divider></mat-divider> -->
         <!-- <mat-card-title>{{user.email}}</mat-card-title> -->
-        <button routerLink="/register" routerLinkActive="active">Add Account</button>
-        <button (click)="logout()">Log Out</button>
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+          <div>
+            <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" >Add Account</button>
+          </div>
+          <div>
+            <button (click)="logout()" fxLayoutAlign="end center">Log Out</button>
+          </div>
+        </div>
       </mat-card>
     </mat-menu>
   </div>
@@ -99,7 +109,7 @@
       <mat-sidenav-content class="sidenav">
         <p>Welcome to fundoo notes</p>
         <!-- <router-outlet></router-outlet> -->
-      </mat-sidenav-content> 
+      </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
 </div>

@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         if(response.statusCode === 1){
           console.log(response);
           localStorage.setItem("token",response.token);
+          localStorage.setItem("email",this.user.email);
           this.snackBar.open(
             "Login Successfully",
             "undo",
