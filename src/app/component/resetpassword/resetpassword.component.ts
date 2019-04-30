@@ -3,7 +3,7 @@ import { ResetModel } from 'src/app/model/reset-model';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { HttpService } from 'src/app/service/http-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-resetpassword',
@@ -19,7 +19,8 @@ export class ResetpasswordComponent implements OnInit {
   constructor(private snackBar: MatSnackBar,
     private httpservice:HttpService,
     private formBuilder: FormBuilder,
-    private route : ActivatedRoute) { 
+    private route : ActivatedRoute,
+    private router:Router) { 
 
   }
 
@@ -45,6 +46,7 @@ export class ResetpasswordComponent implements OnInit {
               "undo",
               {duration:2500}
             )
+            this.router.navigate(['/login'])
           }else{
             console.log(response);
             this.snackBar.open(

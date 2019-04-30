@@ -63,19 +63,18 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <mat-menu #accountmenu="matMenu">
-      <mat-card style="height: 80px;">
+      <mat-card style="height: 100px;">
         <div fxLayout="row">
           <mat-icon>account_circle</mat-icon>
         </div>
-        <p fxLayout="row"> {{email}} </p>
-        <!-- <mat-divider></mat-divider> -->
-        <!-- <mat-card-title>{{user.email}}</mat-card-title> -->
+        <p fxLayout="row" fxLayoutAlign="center center"> {{email}} </p>
+        <mat-divider></mat-divider>
         <div fxLayout="row" fxLayoutAlign="space-around center">
           <div>
-            <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" >Add Account</button>
+            <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" mat-button>Add Account</button>
           </div>
           <div>
-            <button (click)="logout()" fxLayoutAlign="end center">Log Out</button>
+            <button (click)="logout()" fxLayoutAlign="end center" mat-button>Log Out</button>
           </div>
         </div>
       </mat-card>
