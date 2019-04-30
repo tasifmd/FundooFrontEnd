@@ -60,10 +60,11 @@
             <mat-icon style="font-size:25px">account_circle</mat-icon>
           </button>
         </div>
+        
       </mat-toolbar-row>
     </mat-toolbar>
     <mat-menu #accountmenu="matMenu">
-      <mat-card style="height: 100px;">
+      <mat-card style="height: 100px;width: 245px;">
         <div fxLayout="row">
           <mat-icon>account_circle</mat-icon>
         </div>
@@ -71,10 +72,10 @@
         <mat-divider></mat-divider>
         <div fxLayout="row" fxLayoutAlign="space-around center">
           <div>
-            <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" mat-button>Add Account</button>
+            <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" mat-raised-button>Add Account</button>
           </div>
           <div>
-            <button (click)="logout()" fxLayoutAlign="end center" mat-button>Log Out</button>
+            <button (click)="logout()" fxLayoutAlign="end center" mat-raised-button>Log Out</button>
           </div>
         </div>
       </mat-card>
@@ -88,6 +89,7 @@
       <mat-sidenav style="width:15%;padding: 2%;" #sidenav mode="side">
         <mat-nav-list class="navlist">
           <mat-list>
+
             <div>
               <button mat-button>
                 <mat-icon>lightbulb_outline</mat-icon> Notes
