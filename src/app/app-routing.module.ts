@@ -8,6 +8,10 @@ import { DashBoardComponent } from './component/dash-board/dash-board.component'
 import { AuthGuardService } from './service/auth-guard.service';
 const routes: Routes = [
   {
+    path:'',
+    component:RegisterComponent
+  },
+  {
     path: 'register',
     component : RegisterComponent
   },

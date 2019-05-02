@@ -20,6 +20,7 @@ import { ForgotpasswordComponent } from './component/forgotpassword/forgotpasswo
 import { RouterModule } from '@angular/router';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { DashBoardComponent } from './component/dash-board/dash-board.component';
+import { AddNoteComponent } from './component/add-note/add-note.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DashBoardComponent } from './component/dash-board/dash-board.component'
     LoginComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    AddNoteComponent
   ],
 
   imports: [

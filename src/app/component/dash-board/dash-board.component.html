@@ -63,6 +63,7 @@
         
       </mat-toolbar-row>
     </mat-toolbar>
+
     <mat-menu #accountmenu="matMenu">
       <mat-card style="height: 100px;width: 245px;">
         <div fxLayout="row">
@@ -86,7 +87,7 @@
 
   <div>
     <mat-sidenav-container class="example-container">
-      <mat-sidenav style="width:15%;padding: 2%;" #sidenav mode="side">
+      <mat-sidenav style="width:14%;padding: 2%;" #sidenav mode="side">
         <mat-nav-list class="navlist">
           <mat-list>
 
@@ -108,8 +109,9 @@
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content class="sidenav">
-        <p>Welcome to fundoo notes</p>
+        <!-- <p>Welcome to fundoo notes</p> -->
         <!-- <router-outlet></router-outlet> -->
+        <app-add-note></app-add-note>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

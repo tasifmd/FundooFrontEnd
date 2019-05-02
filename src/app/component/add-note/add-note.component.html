@@ -1,0 +1,57 @@
+<div flex=10 fxLayoutAlign="center center">
+  <div>
+    <mat-card fxLayoutAlign="center center" *ngIf="!showAddNote" (click)="showBar()" class="searchCard">
+      <div fxLayout="row">
+        <div fxLayout="row" fxLayoutAlign="start">
+          <input matInput type="text" placeholder="Take a Note..."
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;font-size: 20px;" />
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end end">
+          <div>
+            <button mat-icon-button>
+              <mat-icon matTooltip="New List">check_box</mat-icon>
+            </button>
+          </div>
+          <div>
+            <button mat-icon-button>
+              <mat-icon matTooltip="New note with drawing">brush</mat-icon>
+            </button>
+          </div>
+          <div flex=40>
+            <button mat-icon-button>
+              <mat-icon matTooltip="New note with image">image</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+</div>
+
+<div flex=80 fxLayoutAlign="center center">
+  <mat-card *ngIf="showAddNote" fxLayoutAlign="center center" class="searchMatCard">
+    <div flex=10 fxLayout="column" fxLayoutAlign="start start">
+      <div>
+        <input matInput type="text" placeholder="Title"
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;margin-right: 400px;" />
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <div>
+          <input matInput type="text" placeholder="Take a note..."
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;margin-right: 400px;margin-top: 12px;" />
+        </div>
+        <mat-divider></mat-divider>
+        <div style="margin-top: 20px;">
+            <button>
+              <mat-icon>palette</mat-icon>
+            </button>
+            <button mat-button (click)="close()">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+</div>
