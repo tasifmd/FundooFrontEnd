@@ -1,4 +1,7 @@
+import { NoteService } from './../../service/note.service';
+import { NoteModel } from './../../model/note-model';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-note',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNoteComponent implements OnInit {
   private showAddNote: boolean;
-  constructor() { }
+  note : NoteModel = new NoteModel();
+
+  constructor(private noteService : NoteService , private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -16,6 +21,22 @@ export class AddNoteComponent implements OnInit {
     this.showAddNote=true;
   }
   close(){
-    
+    console.log("Add Note");
+    console.log(localStorage.getItem("token"));
+    this.noteService.createNote("note/create" , this.note).subscribe(
+      (response : any) => {
+        if(response.statusCode === 1){
+          this.snackBar.open(
+            "Note created successfully","",{duration:2500}
+          );
+        }
+        else{
+          this.snackBar.open(
+            "Note creation failed","",{duration:2500}
+          );
+        }
+      }
+    );
+    this.showAddNote = false;
   }
 }

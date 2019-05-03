@@ -32,13 +32,13 @@ export class LoginComponent implements OnInit {
   onLogin(){
     console.log("Login");
     console.log(this.user.email);
-    this.token = localStorage.getItem("token");
+    this.token = localStorage.getItem('token');
     this.httpservice.postRequest("login",this.user).subscribe(
       (response:any) => {
         if(response.statusCode === 1){
           console.log(response);
-          localStorage.setItem("token",response.token);
-          localStorage.setItem("email",this.user.email);
+          localStorage.setItem('token',response.token);
+          localStorage.setItem('email',this.user.email);
           this.snackBar.open(
             "Login Successfully",
             "undo",

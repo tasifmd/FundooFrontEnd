@@ -33,21 +33,21 @@
   <mat-card *ngIf="showAddNote" fxLayoutAlign="center center" class="searchMatCard">
     <div flex=10 fxLayout="column" fxLayoutAlign="start start">
       <div>
-        <input matInput type="text" placeholder="Title"
-          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;margin-right: 400px;" />
+        <input matInput type="text" placeholder="Title" [(ngModel)]="note.title"
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;" />
       </div>
       <mat-divider></mat-divider>
       <div>
         <div>
-          <input matInput type="text" placeholder="Take a note..."
-            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;margin-right: 400px;margin-top: 12px;" />
+          <input matInput type="text" placeholder="Take a note..." [(ngModel)]="note.description"
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;" />
         </div>
         <mat-divider></mat-divider>
         <div style="margin-top: 20px;">
-            <button>
-              <mat-icon>palette</mat-icon>
-            </button>
-            <button mat-button (click)="close()">Close</button>
+          <!-- <button>
+            <mat-icon>palette</mat-icon>
+          </button> -->
+          <button mat-button (click)="close()">Close</button>
 
         </div>
       </div>
