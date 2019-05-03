@@ -2,7 +2,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatIconModule, MatTooltipModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { DashBoardComponent } from './component/dash-board/dash-board.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
+import { NoteComponent } from './component/note/note.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AddNoteComponent } from './component/add-note/add-note.component';
     ForgotpasswordComponent,
     ResetpasswordComponent,
     DashBoardComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    NoteComponent
   ],
 
   imports: [
@@ -46,6 +48,7 @@ import { AddNoteComponent } from './component/add-note/add-note.component';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatSidenavModule,
     MatMenuModule,
     HttpClientModule,

@@ -37,26 +37,26 @@
         </div>
 
         <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button>
+          <button mat-icon-button matTooltip="list view">
             <mat-icon style="font-size:25px">list</mat-icon>
             <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
           </button>
         </div>
 
         <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button>
+          <button mat-icon-button matTooltip="setting">
             <mat-icon style="font-size:25px">settings</mat-icon>
           </button>
         </div>
 
         <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button>
+          <button mat-icon-button matTooltip="apps">
             <mat-icon style="font-size:25px">apps</mat-icon>
           </button>
         </div>
 
         <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button [matMenuTriggerFor]="accountmenu">
+          <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}}>
             <mat-icon style="font-size:25px">account_circle</mat-icon>
           </button>
         </div>
