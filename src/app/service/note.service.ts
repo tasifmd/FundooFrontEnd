@@ -16,8 +16,14 @@ export class NoteService {
   constructor(private http: HttpClient) { }
 
   public createNote(url :any, data: any ):any{
-   return this.http.post(this.baseurl+url,data,{
-    headers: new HttpHeaders().set('token',localStorage.getItem('token'))
-  });
+    return this.http.post(this.baseurl+url,data,{
+      headers: new HttpHeaders().set('token',localStorage.getItem('token'))
+    });
+  }
+
+  public getNotes(url : any) : any {
+    return this.http.post(this.baseurl+url,{
+      headers: new HttpHeaders().set('token',localStorage.getItem('token'))
+    });
   }
 }
