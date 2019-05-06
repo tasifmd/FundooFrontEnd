@@ -23,7 +23,7 @@ export class AddNoteComponent implements OnInit {
   close(){
     console.log("Add Note");
     console.log(localStorage.getItem("token"));
-    this.noteService.createNote("note/create" , this.note).subscribe(
+    this.noteService.postRequest("note/create" , this.note).subscribe(
       (response : any) => {
         if(response.statusCode === 1){
           this.snackBar.open(

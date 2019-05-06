@@ -10,7 +10,7 @@ import { NoteComponent } from './component/note/note.component';
 const routes: Routes = [
   {
     path:'',
-    component:RegisterComponent
+    component:LoginComponent
   },
   {
     path: 'register',

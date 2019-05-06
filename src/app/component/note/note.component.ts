@@ -9,13 +9,13 @@ import { NoteModel } from 'src/app/model/note-model';
 })
 export class NoteComponent implements OnInit {
   notes: NoteModel[];
+  
   constructor(private noteService: NoteService) { 
-    
   }
 
   ngOnInit() {
     console.log("Get notes");
-    this.noteService.getNotes('getallnotes').subscribe(
+    this.noteService.getRequest('note/getallnotes').subscribe(
       (response: any) => {
         this.notes=response;
         console.log(response);
