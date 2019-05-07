@@ -36,6 +36,10 @@ const routes: Routes = [
       {
         path:'',
         component:NoteComponent
+      },
+      {
+        path:'note',
+        component:NoteComponent
       }
     ]
   }

@@ -32,7 +32,8 @@
       </div>
 
       <div fxFlex="20">
-        <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh" style="padding-left: 50%;">
+        <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh"
+          style="padding-left: 50%;">
           <mat-icon>refresh</mat-icon>
         </button>
       </div>
@@ -94,9 +95,11 @@
           <mat-list>
 
             <div>
-              <button mat-button>
-                <mat-icon>lightbulb_outline</mat-icon> Notes
-              </button>
+              <a mat-list-item [routerLink]="['note']" [routerLinkActive]="['is-active']">
+                <button mat-button>
+                  <mat-icon>lightbulb_outline</mat-icon> Notes
+                </button>
+              </a>
             </div>
 
             <div>

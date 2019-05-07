@@ -1,27 +1,24 @@
 <div flex=10 fxLayoutAlign="center center" class="main">
   <div>
-    <mat-card fxLayoutAlign="center center" *ngIf="!showAddNote" (click)="showBar()" class="searchCard">
-      <div fxLayout="row" fxLayoutAlign="start start">
+    <mat-card *ngIf="!showAddNote" (click)="showBar()" class="searchCard">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
         <div>
           <input matInput type="text" placeholder="Take a Note..."
             style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;font-size: 20px;" />
         </div>
-        <div fxLayout="row" fxLayoutAlign="end start" >
-          <div>
-            <button mat-icon-button>
-              <mat-icon matTooltip="New List">check_box</mat-icon>
-            </button>
-          </div>
-          <div>
-            <button mat-icon-button>
-              <mat-icon matTooltip="New note with drawing">brush</mat-icon>
-            </button>
-          </div>
-          <div>
-            <button mat-icon-button>
-              <mat-icon matTooltip="New note with image">image</mat-icon>
-            </button>
-          </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <button mat-icon-button>
+            <mat-icon matTooltip="New List">check_box</mat-icon>
+          </button>
+
+          <button mat-icon-button>
+            <mat-icon matTooltip="New note with drawing">brush</mat-icon>
+          </button>
+
+          <button mat-icon-button>
+            <mat-icon matTooltip="New note with image">image</mat-icon>
+          </button>
+
         </div>
       </div>
     </mat-card>
@@ -30,11 +27,11 @@
 </div>
 
 <div flex=80 fxLayoutAlign="center center">
-  <mat-card *ngIf="showAddNote" fxLayoutAlign="center center" class="searchMatCard">
+  <mat-card *ngIf="showAddNote" fxLayoutAlign="start center" class="searchMatCard">
     <div flex=10 fxLayout="column" fxLayoutAlign="start start">
       <div>
         <input matInput type="text" placeholder="Title" [(ngModel)]="note.title"
-          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;" />
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px;" />
       </div>
       <mat-divider></mat-divider>
       <div>
@@ -43,10 +40,11 @@
             style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;" />
         </div>
         <mat-divider></mat-divider>
-        <div style="margin-top: 20px;">
+        <div fxLayout="row" fxLayoutAlign="space-between center"  style="margin-top: 20px;">
           <!-- <button>
             <mat-icon>palette</mat-icon>
           </button> -->
+          <app-icon></app-icon>
           <button mat-button (click)="close()">Close</button>
         </div>
       </div>

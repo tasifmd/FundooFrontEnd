@@ -2,14 +2,14 @@
   <div>
     <app-add-note></app-add-note>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="2px">
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
     <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center">
       <mat-card>
         <div class="card">
           <div class="title">{{ items.title }}</div>
           <div class="description">{{ items.description }}</div>
         </div>
-        <div>
+        <div class="icon">
           <app-icon></app-icon>
         </div>
       </mat-card>
