@@ -31,38 +31,24 @@
         </mat-form-field>
       </div>
 
-      <div fxFlex="20">
-        <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh"
-          style="padding-left: 50%;">
-          <mat-icon>refresh</mat-icon>
-        </button>
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div>
+          <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button matTooltip="list view">
+            <mat-icon style="font-size:25px">list</mat-icon>
+            <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}}>
+            <mat-icon style="font-size:25px">account_circle</mat-icon>
+          </button>
+        </div>
       </div>
-
-      <div fxFlex="10">
-        <button mat-icon-button matTooltip="list view">
-          <mat-icon style="font-size:25px">list</mat-icon>
-          <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
-        </button>
-      </div>
-
-      <!-- <div fxFlex="5">
-        <button mat-icon-button matTooltip="setting">
-          <mat-icon style="font-size:25px">settings</mat-icon>
-        </button>
-      </div> -->
-
-      <!-- <div fxFlex="5">
-        <button mat-icon-button matTooltip="apps">
-          <mat-icon style="font-size:25px">apps</mat-icon>
-        </button>
-      </div> -->
-
-      <div fxFlex="10">
-        <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}}>
-          <mat-icon style="font-size:25px">account_circle</mat-icon>
-        </button>
-      </div>
-
       <!-- </mat-toolbar-row> -->
     </mat-toolbar>
 
@@ -107,9 +93,26 @@
                 <mat-icon>notifications_none</mat-icon> Remainder
               </button>
             </div>
-
             <mat-divider></mat-divider>
-
+            <div style="padding-left:15%;">
+              <h5>LABELS</h5>
+            </div>
+            <div>
+              <button mat-button>
+                  <mat-icon>edit</mat-icon> Edit Labels 
+              </button>
+            </div>
+            <mat-divider></mat-divider>
+            <div>
+              <button mat-button>
+                <mat-icon>archive</mat-icon> Archive
+              </button>
+            </div>
+            <div>
+              <button mat-button>
+                <mat-icon>delete</mat-icon> Trash
+              </button>
+            </div>
           </mat-list>
         </mat-nav-list>
       </mat-sidenav>
