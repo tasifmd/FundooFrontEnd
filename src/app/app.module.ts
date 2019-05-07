@@ -22,6 +22,7 @@ import { ResetpasswordComponent } from './component/resetpassword/resetpassword.
 import { DashBoardComponent } from './component/dash-board/dash-board.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { NoteComponent } from './component/note/note.component';
+import { IconComponent } from './component/icon/icon.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { NoteComponent } from './component/note/note.component';
     ResetpasswordComponent,
     DashBoardComponent,
     AddNoteComponent,
-    NoteComponent
+    NoteComponent,
+    IconComponent
   ],
 
   imports: [

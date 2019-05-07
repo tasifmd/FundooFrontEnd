@@ -2,66 +2,67 @@
   <div style="margin-left: 15px;">
     <mat-toolbar>
 
-      <mat-toolbar-row>
-
+      <!-- <mat-toolbar-row> -->
+      <div fxLayout="row" fxLayoutAlign="start start">
         <div>
-          <button mat-icon-button fxFlex="110" fxLayout="row" fxLayoutAlign="center center" (click)="sidenav.toggle()">
+          <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon matTooltip="Main menu">menu</mat-icon>
           </button>
         </div>
 
         <div>
-          <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" fxFlex="180"
-            fxLayoutAlign="center center" style="width:40px;height:40px">
+          <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo"
+            style="width:40px;height:40px">
         </div>
 
-        <div class="title" fxFlex="13" fxLayoutAlign="center center">
-          <h3>FundooNotes</h3>
+        <div fxHide.xs>
+          <h3 style="padding-top: 3%;">FundooNotes</h3>
         </div>
+      </div>
 
-        <div fxFlex="55" fxLayout="row" fxLayoutAlign="center center">
-          <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search"
-            style="margin-left: 5%;width: 200%;">
-            <button mat-icon-button class="search-button">
-              <mat-icon matTooltip="Search">search</mat-icon>
-            </button>
-            <input fxFlex="90" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window"
-              autocomplete="off" />
-          </mat-form-field>
-        </div>
-
-        <div fxFlex="5" class="settingbtn" fxLayoutAlign="center center">
-          <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
-            <mat-icon>refresh</mat-icon>
+      <div fxFlex="60" fxLayout="row" fxLayoutAlign="center center">
+        <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search"
+          style="margin-left: 15%;width: 200%;">
+          <button mat-icon-button class="search-button">
+            <mat-icon matTooltip="Search">search</mat-icon>
           </button>
-        </div>
+          <input fxFlex="90" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window"
+            autocomplete="off" />
+        </mat-form-field>
+      </div>
 
-        <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button matTooltip="list view">
-            <mat-icon style="font-size:25px">list</mat-icon>
-            <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
-          </button>
-        </div>
+      <div fxFlex="20">
+        <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh" style="padding-left: 50%;">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
 
-        <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button matTooltip="setting">
-            <mat-icon style="font-size:25px">settings</mat-icon>
-          </button>
-        </div>
+      <div fxFlex="10">
+        <button mat-icon-button matTooltip="list view">
+          <mat-icon style="font-size:25px">list</mat-icon>
+          <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
+        </button>
+      </div>
 
-        <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button matTooltip="apps">
-            <mat-icon style="font-size:25px">apps</mat-icon>
-          </button>
-        </div>
+      <!-- <div fxFlex="5">
+        <button mat-icon-button matTooltip="setting">
+          <mat-icon style="font-size:25px">settings</mat-icon>
+        </button>
+      </div> -->
 
-        <div fxFlex="5" fxLayoutAlign="center center">
-          <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}} >
-            <mat-icon style="font-size:25px">account_circle</mat-icon>
-          </button>
-        </div>
-        
-      </mat-toolbar-row>
+      <!-- <div fxFlex="5">
+        <button mat-icon-button matTooltip="apps">
+          <mat-icon style="font-size:25px">apps</mat-icon>
+        </button>
+      </div> -->
+
+      <div fxFlex="10">
+        <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}}>
+          <mat-icon style="font-size:25px">account_circle</mat-icon>
+        </button>
+      </div>
+
+      <!-- </mat-toolbar-row> -->
     </mat-toolbar>
 
     <mat-menu #accountmenu="matMenu">
@@ -73,7 +74,8 @@
         <mat-divider></mat-divider>
         <div fxLayout="row" fxLayoutAlign="space-around center">
           <div>
-            <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" mat-raised-button>Add Account</button>
+            <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" mat-raised-button>Add
+              Account</button>
           </div>
           <div>
             <button (click)="logout()" fxLayoutAlign="end center" mat-raised-button>Log Out</button>
@@ -87,7 +89,7 @@
 
   <div>
     <mat-sidenav-container class="example-container">
-      <mat-sidenav style="width:14%;padding: 2%;" #sidenav mode="side">
+      <mat-sidenav style="width:18%;padding: 2%;" #sidenav mode="side">
         <mat-nav-list class="navlist">
           <mat-list>
 

@@ -1,0 +1,25 @@
+.cardcontaint{
+    padding-top: 3%;
+}
+
+.card{
+    min-height: 100px;
+    min-width: 200px;
+}
+
+.title{
+    letter-spacing: .00625em;
+    word-wrap: break-word;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.description{
+    letter-spacing: .00625em;
+    word-wrap: break-word;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}

@@ -17,9 +17,11 @@ export class AddNoteComponent implements OnInit {
   ngOnInit() {
 
   }
+
   showBar(){
     this.showAddNote=true;
   }
+  
   close(){
     console.log("Add Note");
     console.log(localStorage.getItem("token"));

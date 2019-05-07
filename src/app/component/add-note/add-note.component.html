@@ -1,12 +1,12 @@
 <div flex=10 fxLayoutAlign="center center" class="main">
   <div>
     <mat-card fxLayoutAlign="center center" *ngIf="!showAddNote" (click)="showBar()" class="searchCard">
-      <div fxLayout="row">
-        <div fxLayout="row" fxLayoutAlign="start">
+      <div fxLayout="row" fxLayoutAlign="start start">
+        <div>
           <input matInput type="text" placeholder="Take a Note..."
             style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;font-size: 20px;" />
         </div>
-        <div fxLayout="row" fxLayoutAlign="end end">
+        <div fxLayout="row" fxLayoutAlign="end start" >
           <div>
             <button mat-icon-button>
               <mat-icon matTooltip="New List">check_box</mat-icon>
@@ -17,7 +17,7 @@
               <mat-icon matTooltip="New note with drawing">brush</mat-icon>
             </button>
           </div>
-          <div flex=40>
+          <div>
             <button mat-icon-button>
               <mat-icon matTooltip="New note with image">image</mat-icon>
             </button>
