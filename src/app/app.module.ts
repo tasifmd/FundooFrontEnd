@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule} from '@angular/material/menu';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
@@ -23,6 +23,7 @@ import { DashBoardComponent } from './component/dash-board/dash-board.component'
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { NoteComponent } from './component/note/note.component';
 import { IconComponent } from './component/icon/icon.component';
+import { DialogboxComponent } from './component/dialogbox/dialogbox.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { IconComponent } from './component/icon/icon.component';
     DashBoardComponent,
     AddNoteComponent,
     NoteComponent,
-    IconComponent
+    IconComponent,
+    DialogboxComponent
   ],
 
   imports: [
@@ -56,9 +58,11 @@ import { IconComponent } from './component/icon/icon.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
     RouterModule
   ],
   providers: [],
+  entryComponents:[DialogboxComponent],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

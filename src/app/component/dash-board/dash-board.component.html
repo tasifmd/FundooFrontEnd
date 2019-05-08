@@ -31,19 +31,19 @@
         </mat-form-field>
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="space-around center">
-        <div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 20%;margin-left: 3%;">
+        <div fxFlex="20">
           <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
             <mat-icon>refresh</mat-icon>
           </button>
         </div>
-        <div>
+        <div fxFlex="20">
           <button mat-icon-button matTooltip="list view">
             <mat-icon style="font-size:25px">list</mat-icon>
             <!-- <mat-icon style="font-size:25px">grid_on</mat-icon> -->
           </button>
         </div>
-        <div>
+        <div fxFlex="20">
           <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}}>
             <mat-icon style="font-size:25px">account_circle</mat-icon>
           </button>
@@ -81,7 +81,8 @@
           <mat-list>
 
             <div>
-              <a mat-list-item [routerLink]="['note']" [routerLinkActive]="['is-active']">
+              <a mat-list-item [routerLink]="['note']" >
+                  <!-- [routerLinkActive]="['is-active']" -->
                 <button mat-button>
                   <mat-icon>lightbulb_outline</mat-icon> Notes
                 </button>
@@ -99,7 +100,7 @@
             </div>
             <div>
               <button mat-button>
-                  <mat-icon>edit</mat-icon> Edit Labels 
+                <mat-icon>edit</mat-icon> Edit Labels
               </button>
             </div>
             <mat-divider></mat-divider>

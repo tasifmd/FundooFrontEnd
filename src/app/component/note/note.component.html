@@ -5,9 +5,9 @@
   <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
     <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center">
       <mat-card>
-        <div class="card">
-          <div class="title">{{ items.title }}</div>
-          <div class="description">{{ items.description }}</div>
+        <div  class="card">
+          <div class="title" (click)="openDialog(items)">{{ items.title }}</div>
+          <div class="description" (click)="openDialog(items)">{{ items.description }}</div>
         </div>
         <div class="icon">
           <app-icon></app-icon>

@@ -36,14 +36,11 @@
       <mat-divider></mat-divider>
       <div>
         <div>
-          <input matInput type="text" placeholder="Take a note..." [(ngModel)]="note.description"
-            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;" />
-        </div>
+          <textarea matTextareaAutosize matInput placeholder="Take a note..." [(ngModel)]="note.description"
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;"></textarea>
+          </div>
         <mat-divider></mat-divider>
-        <div fxLayout="row" fxLayoutAlign="space-between center"  style="margin-top: 20px;">
-          <!-- <button>
-            <mat-icon>palette</mat-icon>
-          </button> -->
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-top: 20px;">
           <app-icon></app-icon>
           <button mat-button (click)="close()">Close</button>
         </div>

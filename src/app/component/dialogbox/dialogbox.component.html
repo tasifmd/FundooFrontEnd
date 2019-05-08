@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <div>
+      <input matInput class="title" type="text" [(ngModel)]="title" style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px;">
+    </div>
+
+    <div>
+      <textarea matTextareaAutosize matInput class="discription" type="text" [(ngModel)]="discription" style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;"></textarea>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <app-icon></app-icon>
+      <button mat-button (click)="onClose()">Close</button>
+    </div>
+</div>
