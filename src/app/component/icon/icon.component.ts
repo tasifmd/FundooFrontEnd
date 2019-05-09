@@ -6,15 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./icon.component.scss']
 })
 export class IconComponent implements OnInit {
-  @Input() note : any;
+  @Input() noteData : any;
   constructor() { }
 
   ngOnInit() {
   }
 
   getNoteId(){
-    console.log("Note id "  + this.note.id);
-    localStorage.setItem("noteId",this.note.id);
+    console.log("Note id "  + this.noteData.id);
+    localStorage.setItem("noteId",this.noteData.id);
   }
   
 }

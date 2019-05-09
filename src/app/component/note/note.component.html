@@ -3,14 +3,14 @@
     <app-add-note></app-add-note>
   </div>
   <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
-    <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center">
-      <mat-card>
-        <div  class="card">
+    <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+      <mat-card class="matCard">
+        <div class="card">
           <div class="title" (click)="openDialog(items)">{{ items.title }}</div>
           <div class="description" (click)="openDialog(items)">{{ items.description }}</div>
         </div>
-        <div class="icon">
-          <app-icon></app-icon>
+        <div class="icon" fxLayout="row" fxLayoutAlign="center end">
+          <app-icon [noteData]="items"></app-icon>
         </div>
       </mat-card>
     </div>
