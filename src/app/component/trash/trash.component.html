@@ -1,0 +1,22 @@
+<div class="main">
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+    <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+      <mat-card class="matCard">
+        <div class="card">
+          <div class="title">{{ items.title }}</div>
+          <div class="description">{{ items.description }}</div>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <img src="../../../assets/more.svg" [matMenuTriggerFor]="moreBtn" mat-button
+              style="height: 20px;width: 20px;">
+          </button>
+          <mat-menu #moreBtn="matMenu">
+            <div><button mat-button (click)=deleteForEver()>Delete forever</button></div>
+            <div><button mat-button (click)=restore()>Restore</button></div>
+          </mat-menu>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

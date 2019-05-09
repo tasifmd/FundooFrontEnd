@@ -81,8 +81,8 @@
           <mat-list>
 
             <div>
-              <a mat-list-item [routerLink]="['note']" >
-                  <!-- [routerLinkActive]="['is-active']" -->
+              <a mat-list-item [routerLink]="['note']">
+                <!-- [routerLinkActive]="['is-active']" -->
                 <button mat-button>
                   <mat-icon>lightbulb_outline</mat-icon> Notes
                 </button>
@@ -110,9 +110,11 @@
               </button>
             </div>
             <div>
-              <button mat-button>
-                <mat-icon>delete</mat-icon> Trash
-              </button>
+              <a mat-list-item [routerLink]="['trash']">
+                <button mat-button>
+                  <mat-icon>delete</mat-icon> Trash
+                </button>
+              </a>
             </div>
           </mat-list>
         </mat-nav-list>

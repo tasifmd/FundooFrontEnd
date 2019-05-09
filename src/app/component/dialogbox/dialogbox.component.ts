@@ -10,7 +10,7 @@ import { NoteService } from 'src/app/service/note.service';
 })
 export class DialogboxComponent implements OnInit {
   @Input() noteData: any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar,public dialogRef: MatDialogRef<DialogboxComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<DialogboxComponent>) { }
 
   note: any;
   title = new FormControl(this.data.title);

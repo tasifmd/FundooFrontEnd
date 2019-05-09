@@ -7,6 +7,7 @@ import { ResetpasswordComponent } from './component/resetpassword/resetpassword.
 import { DashBoardComponent } from './component/dash-board/dash-board.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { NoteComponent } from './component/note/note.component';
+import { TrashComponent } from './component/trash/trash.component';
 const routes: Routes = [
   {
     path:'',
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path:'note',
         component:NoteComponent
+      },
+      {
+        path:'trash',
+        component:TrashComponent
       }
     ]
   }

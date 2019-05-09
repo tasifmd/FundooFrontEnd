@@ -24,6 +24,7 @@ import { AddNoteComponent } from './component/add-note/add-note.component';
 import { NoteComponent } from './component/note/note.component';
 import { IconComponent } from './component/icon/icon.component';
 import { DialogboxComponent } from './component/dialogbox/dialogbox.component';
+import { TrashComponent } from './component/trash/trash.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DialogboxComponent } from './component/dialogbox/dialogbox.component';
     AddNoteComponent,
     NoteComponent,
     IconComponent,
-    DialogboxComponent
+    DialogboxComponent,
+    TrashComponent
   ],
 
   imports: [

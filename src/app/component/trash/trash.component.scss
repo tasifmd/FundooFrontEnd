@@ -1,7 +1,6 @@
-.cardcontaint{
-    padding-top: 3%;
+.main{
+    margin-top: 5%;
 }
-
 .matCard{
     min-height: 75px;
     width: 210px;
@@ -22,13 +21,4 @@
     font-family: 'Google Sans',Roboto,Arial,sans-serif;
     font-size: 1rem;
     line-height: 1.5rem;
-}
-mat-card:hover{
-    .icon{
-        visibility: visible;
-    }
-}
-
-.icon{
-    visibility: hidden;
 }

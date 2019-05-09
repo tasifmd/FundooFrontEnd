@@ -11,14 +11,14 @@ import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 export class NoteComponent implements OnInit {
   notes: any[];
   data: any[];
-  constructor(private noteService: NoteService,public dialog: MatDialog) { 
+  constructor(private noteService: NoteService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
     console.log("Get notes");
     this.noteService.getRequest('note/getallnotes').subscribe(
       (response: any) => {
-        this.notes=response;
+        this.notes = response;
         console.log(response);
       }
     )
@@ -26,8 +26,8 @@ export class NoteComponent implements OnInit {
 
   openDialog(items): void {
     const dialogRef = this.dialog.open(DialogboxComponent, {
-      width: '600px',height:'230px',
-      data:{
+      width: '600px', height: '230px',
+      data: {
         title: items.title,
         description: items.description,
         noteId: items.id
