@@ -1,0 +1,18 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+  <div *ngFor="let items of notes" class="cardcontaint" >
+    <mat-card class="matCard">
+      <div fxLayout="row" fxLayoutAlign="end start">
+        <button mat-icon-button (click)=unpin(items)>
+          <img src="../../../assets/pin.svg" matTooltip="Pin" mat-button style="height: 20px;width: 20px;">
+        </button>
+      </div>
+      <div class="card">
+        <div class="title" (click)="openDialog(items)">{{ items.title }}</div>
+        <div class="description" (click)="openDialog(items)">{{ items.description }}</div>
+      </div>
+      <div class="icon" fxLayout="row" fxLayoutAlign="center end">
+        <app-icon [noteData]="items"></app-icon>
+      </div>
+    </mat-card>
+  </div>
+</div>

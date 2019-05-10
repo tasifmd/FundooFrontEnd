@@ -24,7 +24,7 @@ export class DialogboxComponent implements OnInit {
       "title": this.title.value,
       "description": this.description.value
     }
-    this.noteService.putRequest("/note/update?noteId=" + this.id, this.note).subscribe(
+    this.noteService.putRequest("note/update?noteId=" + this.id, this.note).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
           this.snackBar.open("Note updated", "undo", { duration: 2500 });

@@ -81,12 +81,9 @@
           <mat-list>
 
             <div>
-              <a mat-list-item [routerLink]="['note']">
-                <!-- [routerLinkActive]="['is-active']" -->
-                <button mat-button>
-                  <mat-icon>lightbulb_outline</mat-icon> Notes
-                </button>
-              </a>
+              <button mat-button [routerLink]="['note']">
+                <mat-icon>lightbulb_outline</mat-icon> Notes
+              </button>
             </div>
 
             <div>
@@ -105,16 +102,14 @@
             </div>
             <mat-divider></mat-divider>
             <div>
-              <button mat-button>
+              <button mat-button [routerLink]="['archive']">
                 <mat-icon>archive</mat-icon> Archive
               </button>
             </div>
             <div>
-              <a mat-list-item [routerLink]="['trash']">
-                <button mat-button>
-                  <mat-icon>delete</mat-icon> Trash
-                </button>
-              </a>
+              <button mat-button [routerLink]="['trash']">
+                <mat-icon>delete</mat-icon> Trash
+              </button>
             </div>
           </mat-list>
         </mat-nav-list>

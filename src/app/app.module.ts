@@ -25,6 +25,8 @@ import { NoteComponent } from './component/note/note.component';
 import { IconComponent } from './component/icon/icon.component';
 import { DialogboxComponent } from './component/dialogbox/dialogbox.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { ArchiveComponent } from './component/archive/archive.component';
+import { PinComponent } from './component/pin/pin.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { TrashComponent } from './component/trash/trash.component';
     NoteComponent,
     IconComponent,
     DialogboxComponent,
-    TrashComponent
+    TrashComponent,
+    ArchiveComponent,
+    PinComponent
   ],
 
   imports: [

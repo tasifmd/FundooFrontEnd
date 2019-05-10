@@ -8,43 +8,48 @@ import { DashBoardComponent } from './component/dash-board/dash-board.component'
 import { AuthGuardService } from './service/auth-guard.service';
 import { NoteComponent } from './component/note/note.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { ArchiveComponent } from './component/archive/archive.component';
 const routes: Routes = [
   {
-    path:'',
-    component:LoginComponent
+    path: '',
+    component: LoginComponent
   },
   {
     path: 'register',
-    component : RegisterComponent
+    component: RegisterComponent
   },
   {
     path: 'login',
-    component : LoginComponent
+    component: LoginComponent
   },
   {
     path: 'forgotpassword',
-    component : ForgotpasswordComponent
+    component: ForgotpasswordComponent
   },
   {
     path: 'user/resetpassword/:token',
-    component : ResetpasswordComponent
+    component: ResetpasswordComponent
   },
   {
-    canActivate:[AuthGuardService],
+    canActivate: [AuthGuardService],
     path: 'dashboard',
-    component : DashBoardComponent,
+    component: DashBoardComponent,
     children: [
       {
-        path:'',
-        component:NoteComponent
+        path: '',
+        component: NoteComponent
       },
       {
-        path:'note',
-        component:NoteComponent
+        path: 'note',
+        component: NoteComponent
       },
       {
-        path:'trash',
-        component:TrashComponent
+        path: 'trash',
+        component: TrashComponent
+      },
+      {
+        path: "archive",
+        component: ArchiveComponent
       }
     ]
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 
 @Component({
@@ -11,7 +11,7 @@ import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 export class NoteComponent implements OnInit {
   notes: any[];
   data: any[];
-  constructor(private noteService: NoteService, public dialog: MatDialog) {
+  constructor(private noteService: NoteService, public dialog: MatDialog,private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -38,5 +38,15 @@ export class NoteComponent implements OnInit {
       console.log('The dialog was closed');
     });
 
+  }
+
+  pin(items) {
+    this.noteService.putRequest("note/pin?noteId=" + items.id, null).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.snackBar.open("Note pinned successfully")
+        }
+      }
+    );
   }
 }

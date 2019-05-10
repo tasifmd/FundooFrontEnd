@@ -25,4 +25,16 @@ export class IconComponent implements OnInit {
     );
   }
 
+  archive(){
+    console.log("Archive note");
+    this.noteService.putRequest("note/archive?noteId="+ this.noteData.id,null).subscribe(
+      (response:any)=>{
+        if (response.statusCode === 1) {
+          this.snackBar.open("Note archieved" , "undo" ,{duration:2500});
+        }else{
+          this.snackBar.open("Note archieve failed" , "undo" ,{duration:2500});
+        }
+      }
+    );
+  }
 }
