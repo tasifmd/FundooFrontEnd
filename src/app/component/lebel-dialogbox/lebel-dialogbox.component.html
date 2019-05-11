@@ -1,0 +1,39 @@
+<div fxLayout="column" fxLayoutAlign="start start">
+  <div>
+    <h4>Edit Labels</h4>
+  </div>
+
+  <div>
+    <div fxLayout="row">
+
+      <button mat-icon-button>
+        <img src="../../../assets/cross.svg" matTooltip="Cancel" style="height: 20px;width: 20px;">
+      </button>
+
+      <input matInput type="text" placeholder="Create new label" [formControl]="labelName">
+      <div fxLayoutAlign="end end">
+        <button mat-icon-button>
+          <img src="../../../assets/tic.svg" matTooltip="Create label" style="height: 20px;width: 20px;">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let label of allLabels">
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 252px;">
+      <button mat-icon-button>
+        <mat-icon matTooltip="Delete" (click)=deletelabel(label) style="height: 20px;width: 20px;">delete</mat-icon>
+      </button>
+      <span *ngIf="flag === flag">{{label.labelName}}</span>
+      <div fxLayoutAlign="end end">
+        <button mat-icon-button (click)=labeledit(label)>
+          <img src="../../../assets/edit.svg" matTooltip="Rename label" style="height: 20px;width: 20px;">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button mat-button (click)=addLabel()>Done</button>
+  </div>
+</div>

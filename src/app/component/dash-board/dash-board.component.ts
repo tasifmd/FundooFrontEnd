@@ -2,6 +2,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/model/login-model';
+import { MatDialog } from '@angular/material';
+import { LebelDialogboxComponent } from '../lebel-dialogbox/lebel-dialogbox.component';
+import { LabelService } from 'src/app/service/label.service';
 
 @Component({
   selector: 'app-dash-board',
@@ -11,18 +14,38 @@ import { LoginModel } from 'src/app/model/login-model';
 export class DashBoardComponent implements OnInit {
   token: string;
   email: string;
-  user : LoginModel = new LoginModel();
-  constructor(private router:Router) { }
+  user: LoginModel = new LoginModel();
+  allLabels: any[];
+  constructor(private router: Router,public dialog: MatDialog,private labelService: LabelService) { }
 
   ngOnInit() {
     this.token = localStorage.getItem('token');
     this.email = localStorage.getItem('email');
+    this.getLabels();
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     this.router.navigate(['/login']);
   }
+  openDialogLabel() :void {
+    const dialogRef = this.dialog.open(LebelDialogboxComponent, {
+      width: '300px', minHeight: '100px',
+      
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  getLabels() {
+    console.log("Get Label");
+    this.labelService.getRequest("label/getlabel").subscribe(
+      (response: any) => {
+        this.allLabels = response;
+        console.log(this.allLabels);
+      }
+    );
+  }
 }

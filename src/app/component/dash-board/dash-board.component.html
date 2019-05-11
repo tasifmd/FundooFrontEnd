@@ -91,16 +91,24 @@
                 <mat-icon>notifications_none</mat-icon> Remainder
               </button>
             </div>
+            <hr>
             <mat-divider></mat-divider>
             <div style="padding-left:15%;">
               <h5>LABELS</h5>
             </div>
             <div>
-              <button mat-button>
+              <div *ngFor="let items of allLabels" fxLayout="row">
+                <button mat-button>
+                  <img src="../../../assets/arrow.svg" style="height: 20px;width: 20px;">
+                </button>
+                <div>{{ items.labelName }}</div>
+              </div>
+              <button mat-button (click)=openDialogLabel()>
                 <mat-icon>edit</mat-icon> Edit Labels
               </button>
             </div>
             <mat-divider></mat-divider>
+            <hr>
             <div>
               <button mat-button [routerLink]="['archive']">
                 <mat-icon>archive</mat-icon> Archive
