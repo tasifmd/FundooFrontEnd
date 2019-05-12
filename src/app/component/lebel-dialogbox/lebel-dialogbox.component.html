@@ -24,7 +24,8 @@
       <button mat-icon-button>
         <mat-icon matTooltip="Delete" (click)=deletelabel(label) style="height: 20px;width: 20px;">delete</mat-icon>
       </button>
-      <span *ngIf="flag === flag">{{label.labelName}}</span>
+      <input type="text" matInput value="{{label.labelName}}" [formControl]="labelName">
+      <!-- <span>{{label.labelName}}</span> -->
       <div fxLayoutAlign="end end">
         <button mat-icon-button (click)=labeledit(label)>
           <img src="../../../assets/edit.svg" matTooltip="Rename label" style="height: 20px;width: 20px;">

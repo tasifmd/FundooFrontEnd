@@ -19,12 +19,22 @@
     <img src="../../../assets/more.svg" matTooltip="More" mat-button [matMenuTriggerFor]="moreBtn"
       style="height: 20px;width: 20px;">
   </button>
+
+
   <mat-menu #moreBtn="matMenu">
     <div>
       <div><button mat-button (click)=trash()>Delete Note</button></div>
-      <div><button mat-button>Add Lebel</button></div>
+      <div><button mat-button [matMenuTriggerFor]="label">Add Lebel</button></div>
       <div><button mat-button>Add Drawing</button></div>
       <div><button mat-button>Restore</button></div>
+    </div>
+  </mat-menu>
+
+  <mat-menu #label="matMenu">
+    <div *ngFor = "let label of allLabels">
+        <mat-checkbox>
+          
+        </mat-checkbox>
     </div>
   </mat-menu>
 </div>

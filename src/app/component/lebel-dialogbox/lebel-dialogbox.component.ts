@@ -60,13 +60,18 @@ export class LebelDialogboxComponent implements OnInit {
   }
 
   labeledit(label){
-    this.flag=true;
+    this.label = {
+      "labelName": this.labelName.value
+    };
+    this.labelService.putRequest("label/update?labelId="+ label.labelId , this.label).subscribe(
+      (response : any)=>{
+        if(response.statusCode === 1){
+          this.snackbar.open("Label updated","",{duration:2500});
+        }else{
+          this.snackbar.open("Label updation failed","",{duration:2500});
+        }
+      }
+    );
     
   }
-
-  // editLabel() {
-  //   console.log("Edit label");
-  //   this.labelService.putRequest
-  // }
-
 }

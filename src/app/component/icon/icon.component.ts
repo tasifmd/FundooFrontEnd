@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
 import { MatSnackBar } from '@angular/material';
+import { LabelService } from 'src/app/service/label.service';
 
 @Component({
   selector: 'app-icon',
@@ -9,7 +10,8 @@ import { MatSnackBar } from '@angular/material';
 })
 export class IconComponent implements OnInit {
   @Input() noteData: any;
-  constructor(private noteService: NoteService , private snackBar: MatSnackBar) { }
+  allLabels: any[];
+  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService) { }
 
   ngOnInit() {
   }
@@ -19,22 +21,36 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("note/trash?noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
-          this.snackBar.open("Note Trashed" , "Undo" , {duration:2500});
+          this.snackBar.open("Note Trashed", "Undo", { duration: 2500 });
         }
       }
     );
   }
 
-  archive(){
+  archive() {
     console.log("Archive note");
-    this.noteService.putRequest("note/archive?noteId="+ this.noteData.id,null).subscribe(
-      (response:any)=>{
+    this.noteService.putRequest("note/archive?noteId=" + this.noteData.id, null).subscribe(
+      (response: any) => {
         if (response.statusCode === 1) {
-          this.snackBar.open("Note archieved" , "undo" ,{duration:2500});
-        }else{
-          this.snackBar.open("Note archieve failed" , "undo" ,{duration:2500});
+          this.snackBar.open("Note archieved", "undo", { duration: 2500 });
+        } else {
+          this.snackBar.open("Note archieve failed", "undo", { duration: 2500 });
         }
       }
     );
+  }
+
+  getLabels() {
+    console.log("Get Label");
+    this.labelService.getRequest("label/getlabel").subscribe(
+      (response: any) => {
+        this.allLabels = response;
+        console.log(this.allLabels);
+      }
+    );
+  }
+
+  onEvent(event) {
+    event.stopPropagation();
   }
 }
