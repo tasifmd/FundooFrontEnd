@@ -14,6 +14,7 @@ export class IconComponent implements OnInit {
   constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService) { }
 
   ngOnInit() {
+    this.getLabels();
   }
 
   trash() {
@@ -52,5 +53,18 @@ export class IconComponent implements OnInit {
 
   onEvent(event) {
     event.stopPropagation();
+  }
+
+  addLabelToNote(label) {
+    console.log("Add label to  note");
+    this.labelService.putRequest("label/addlebeltonote?labelId=" + label.labelId + "&noteId=" + this.noteData.id, null).subscribe(
+      (response: any) => {
+        if(response.statusCode === 1){
+          this.snackBar.open("Label added to note", "", { duration: 2500 });
+        }else{
+          this.snackBar.open("Label is not added to note", "", { duration: 2500 });
+        }
+      }
+    );
   }
 }

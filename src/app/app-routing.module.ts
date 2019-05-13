@@ -12,7 +12,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: RegisterComponent
   },
   {
     path: 'register',

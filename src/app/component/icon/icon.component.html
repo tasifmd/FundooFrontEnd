@@ -22,19 +22,22 @@
 
 
   <mat-menu #moreBtn="matMenu">
-    <div>
-      <div><button mat-button (click)=trash()>Delete Note</button></div>
-      <div><button mat-button [matMenuTriggerFor]="label">Add Lebel</button></div>
-      <div><button mat-button>Add Drawing</button></div>
-      <div><button mat-button>Restore</button></div>
+    <div fxLayout="column">
+      <button mat-button (click)=trash()>Delete Note</button>
+      <button mat-button [matMenuTriggerFor]="label" (click)="$event.stopPropagation()">Add Label</button>
+      <button mat-button>Add Drawing</button>
+      <button mat-button>Restore</button>
     </div>
   </mat-menu>
 
-  <mat-menu #label="matMenu">
-    <div *ngFor = "let label of allLabels">
-        <mat-checkbox>
-          
-        </mat-checkbox>
-    </div>
-  </mat-menu>
+  <div>
+    <mat-menu #label="matMenu">
+      <div fxLayout="column">
+        <div>Label note</div>
+        <div *ngFor="let label of allLabels">
+          <mat-checkbox (click)="addLabelToNote(label)">{{label.labelName}}</mat-checkbox>
+        </div>
+      </div>
+    </mat-menu>
+  </div>
 </div>

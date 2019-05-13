@@ -6,8 +6,9 @@ import { MatInputModule, MatButtonModule, MatIconModule, MatTooltipModule } from
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatMenuModule} from '@angular/material/menu';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
@@ -62,6 +63,7 @@ import { LebelDialogboxComponent } from './component/lebel-dialogbox/lebel-dialo
     MatToolbarModule,
     MatTooltipModule,
     MatSidenavModule,
+    MatCheckboxModule,
     MatMenuModule,
     HttpClientModule,
     FormsModule,

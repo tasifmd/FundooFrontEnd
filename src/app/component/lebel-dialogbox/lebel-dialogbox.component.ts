@@ -1,7 +1,7 @@
 import { FormControl } from '@angular/forms';
-import { LabelService } from './../../service/label.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
+import { LabelService } from 'src/app/service/label.service';
 
 @Component({
   selector: 'app-lebel-dialogbox',
@@ -74,4 +74,6 @@ export class LebelDialogboxComponent implements OnInit {
     );
     
   }
+
+  
 }

@@ -10,6 +10,7 @@ import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 })
 export class NoteComponent implements OnInit {
   notes: any[];
+  unpinned : any[];
   data: any[];
   constructor(private noteService: NoteService, public dialog: MatDialog,private snackBar: MatSnackBar) {
   }
@@ -21,7 +22,8 @@ export class NoteComponent implements OnInit {
         this.notes = response;
         console.log(response);
       }
-    )
+    );
+    this.getUnPinned();
   }
 
   openDialog(items): void {
@@ -38,6 +40,7 @@ export class NoteComponent implements OnInit {
       console.log('The dialog was closed');
     });
 
+    
   }
 
   pin(items) {
@@ -48,5 +51,14 @@ export class NoteComponent implements OnInit {
         }
       }
     );
+  }
+
+  getUnPinned(){
+    this.noteService.getRequest('note/getunpinnednotes').subscribe(
+      (response: any) => {
+        this.unpinned = response;
+        console.log(response);
+      }
+    ) 
   }
 }
