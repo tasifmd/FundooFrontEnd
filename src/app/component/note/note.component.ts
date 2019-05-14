@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { DialogboxComponent } from '../dialogbox/dialogbox.component';
-
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
@@ -10,9 +9,10 @@ import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 })
 export class NoteComponent implements OnInit {
   notes: any[];
-  unpinned : any[];
+  unpinned: any[];
   data: any[];
-  constructor(private noteService: NoteService, public dialog: MatDialog,private snackBar: MatSnackBar) {
+  labelsOfNotes : any[];
+  constructor(private noteService: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class NoteComponent implements OnInit {
       console.log('The dialog was closed');
     });
 
-    
+
   }
 
   pin(items) {
@@ -53,12 +53,20 @@ export class NoteComponent implements OnInit {
     );
   }
 
-  getUnPinned(){
+  getUnPinned() {
     this.noteService.getRequest('note/getunpinnednotes').subscribe(
       (response: any) => {
         this.unpinned = response;
-        console.log(response);
+        // console.log(response);
       }
-    ) 
+    )
   }
+
+  // getLabelOfNote(items) {
+  //   this.noteService.getRequest("label/getlebelofnote?noteId=" + items.id).subscribe(
+  //     (response : any ) =>{
+  //       this.labelsOfNotes = response;
+  //     }
+  //   );
+  // }
 }

@@ -1,4 +1,16 @@
+<div>
+  <div fxLayout="row wrap">
+    <mat-chip-list #chipList>
+      <mat-chip *ngFor="let items of labelsOfNotes">
+        {{ items.labelName }}
+        <mat-icon (click)="removeLabelFromNote(items)">cancel</mat-icon>
+      </mat-chip>
+      
+    </mat-chip-list>
+  </div>
+</div>
 <div fxLayout="row" fxLayoutAlign="space-between start">
+
   <button mat-icon-button>
     <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" mat-button style="height: 20px;width: 20px;">
   </button>

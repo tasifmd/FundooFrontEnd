@@ -20,6 +20,15 @@
           <div class="title" (click)="openDialog(items)">{{ items.title }}</div>
           <div class="description" (click)="openDialog(items)">{{ items.description }}</div>
         </div>
+
+        <!-- <div fxLayout="row wrap" >
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let labelitems of labelsOfNotes" (onCreate)="getLabelOfNote(items)">
+              {{labelitems.labelName}}
+            </mat-chip>
+          </mat-chip-list>
+        </div> -->
+
         <div class="icon" fxLayout="row" fxLayoutAlign="center end">
           <app-icon [noteData]="items"></app-icon>
         </div>

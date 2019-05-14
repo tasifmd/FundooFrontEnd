@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
@@ -65,6 +66,7 @@ import { LebelDialogboxComponent } from './component/lebel-dialogbox/lebel-dialo
     MatSidenavModule,
     MatCheckboxModule,
     MatMenuModule,
+    MatChipsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,10 +1,11 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/model/login-model';
 import { MatDialog } from '@angular/material';
 import { LebelDialogboxComponent } from '../lebel-dialogbox/lebel-dialogbox.component';
 import { LabelService } from 'src/app/service/label.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-dash-board',
@@ -12,11 +13,17 @@ import { LabelService } from 'src/app/service/label.service';
   styleUrls: ['./dash-board.component.scss']
 })
 export class DashBoardComponent implements OnInit {
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
   token: string;
   email: string;
   user: LoginModel = new LoginModel();
   allLabels: any[];
-  constructor(private router: Router,public dialog: MatDialog,private labelService: LabelService) { }
+  constructor(private router: Router,public dialog: MatDialog,private labelService: LabelService , changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit() {
     this.token = localStorage.getItem('token');

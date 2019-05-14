@@ -11,10 +11,12 @@ import { LabelService } from 'src/app/service/label.service';
 export class IconComponent implements OnInit {
   @Input() noteData: any;
   allLabels: any[];
+  labelsOfNotes: any[];
   constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService) { }
 
   ngOnInit() {
     this.getLabels();
+    this.getLabelOfNote();
   }
 
   trash() {
@@ -46,7 +48,7 @@ export class IconComponent implements OnInit {
     this.labelService.getRequest("label/getlabel").subscribe(
       (response: any) => {
         this.allLabels = response;
-        console.log(this.allLabels);
+        // console.log(this.allLabels);
       }
     );
   }
@@ -59,10 +61,32 @@ export class IconComponent implements OnInit {
     console.log("Add label to  note");
     this.labelService.putRequest("label/addlebeltonote?labelId=" + label.labelId + "&noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
-        if(response.statusCode === 1){
+        if (response.statusCode === 1) {
           this.snackBar.open("Label added to note", "", { duration: 2500 });
-        }else{
+        } else {
           this.snackBar.open("Label is not added to note", "", { duration: 2500 });
+        }
+      }
+    );
+  }
+
+  getLabelOfNote() {
+    this.noteService.getRequest("label/getlebelofnote?noteId=" + this.noteData.id).subscribe(
+      (response: any) => {
+        this.labelsOfNotes = response;
+        console.log(this.noteData.id);
+        console.log(this.labelsOfNotes);
+      }
+    );
+  }
+
+  removeLabelFromNote(label) {
+    this.noteService.putRequest("label/removefromnote?noteId=" + this.noteData.id + "&labelId=" + label.labelId, null).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.snackBar.open("Label removed from note", "", { duration: 2500 });
+        } else {
+          this.snackBar.open("Label is not removed from note", "", { duration: 2500 });
         }
       }
     );
