@@ -17,6 +17,7 @@ export class DashBoardComponent implements OnInit {
   private _mobileQueryListener: () => void;
   token: string;
   email: string;
+  
   user: LoginModel = new LoginModel();
   allLabels: any[];
   constructor(private router: Router,public dialog: MatDialog,private labelService: LabelService , changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 

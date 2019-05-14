@@ -11,18 +11,11 @@ export class NoteComponent implements OnInit {
   notes: any[];
   unpinned: any[];
   data: any[];
-  labelsOfNotes : any[];
+  labelsOfNotes: any[];
   constructor(private noteService: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
-    console.log("Get notes");
-    this.noteService.getRequest('note/getallnotes').subscribe(
-      (response: any) => {
-        this.notes = response;
-        console.log(response);
-      }
-    );
     this.getUnPinned();
   }
 
@@ -39,8 +32,6 @@ export class NoteComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-
-
   }
 
   pin(items) {
