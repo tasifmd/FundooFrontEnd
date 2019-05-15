@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { DialogboxComponent } from '../dialogbox/dialogbox.component';
+import { DataService } from 'src/app/service/data.service';
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
@@ -12,10 +13,16 @@ export class NoteComponent implements OnInit {
   unpinned: any[];
   data: any[];
   labelsOfNotes: any[];
-  constructor(private noteService: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar) {
+  constructor(private noteService: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar, private dataService: DataService) {
+   
   }
 
   ngOnInit() {
+    // this.dataService.currentNotes.subscribe(
+    //   (response: any) => {
+    //     this.unpinned = response;
+    //   }
+    // );
     this.getUnPinned();
   }
 

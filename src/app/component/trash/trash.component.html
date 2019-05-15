@@ -1,7 +1,7 @@
 <div class="main">
-  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px">
+  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px" style="margin-left: 5%">
     <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center" fxLayoutGap="5px">
-      <mat-card class="matCard">
+      <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
         <div class="card">
           <div class="title">{{ items.title }}</div>
           <div class="description">{{ items.description }}</div>

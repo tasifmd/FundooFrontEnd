@@ -5,7 +5,7 @@
         {{ items.labelName }}
         <mat-icon (click)="removeLabelFromNote(items)">cancel</mat-icon>
       </mat-chip>
-      
+
     </mat-chip-list>
   </div>
 </div>
@@ -18,7 +18,8 @@
     <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" mat-button style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
-    <img src="../../../assets/color.svg" matTooltip="Color" mat-button style="height: 20px;width: 20px;">
+    <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button
+      style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
     <img src="../../../assets/image.svg" matTooltip="Image" mat-button style="height: 20px;width: 20px;">
@@ -47,9 +48,22 @@
       <div fxLayout="column">
         <div>Label note</div>
         <div *ngFor="let label of allLabels">
-          <mat-checkbox (click)="addLabelToNote(label)">{{label.labelName}}</mat-checkbox>
+          <mat-checkbox (click)="addLabelToNote(label)">
+            <div [style.fontSize.px]=12>
+              {{label.labelName}}
+            </div>
+          </mat-checkbox>
         </div>
       </div>
     </mat-menu>
   </div>
+
+  <mat-menu #color="matMenu" [overlapTrigger]="false">
+    <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
+      <div *ngFor="let noteColor of color">
+        <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="setColor(noteColor.colorName)"
+        matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
+      </div>
+    </div>
+  </mat-menu>
 </div>
