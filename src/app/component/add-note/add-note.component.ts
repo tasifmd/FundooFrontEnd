@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material';
   templateUrl: './add-note.component.html',
   styleUrls: ['./add-note.component.scss']
 })
+
 export class AddNoteComponent implements OnInit {
   private showAddNote: boolean;
   note : NoteModel = new NoteModel();

@@ -44,7 +44,7 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("note/trash?noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
-          this.snackBar.open("Note Trashed", "Undo", { duration: 2500 });
+          this.snackBar.open("Note Trashed", "close", { duration: 2500 });
         }
       }
     );
@@ -55,9 +55,9 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("note/archive?noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
-          this.snackBar.open("Note archieved", "undo", { duration: 2500 });
+          this.snackBar.open("Note archieved", "close", { duration: 2500 });
         } else {
-          this.snackBar.open("Note archieve failed", "undo", { duration: 2500 });
+          this.snackBar.open("Note archieve failed", "close", { duration: 2500 });
         }
       }
     );
@@ -82,9 +82,9 @@ export class IconComponent implements OnInit {
     this.labelService.putRequest("label/addlebeltonote?labelId=" + label.labelId + "&noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
-          this.snackBar.open("Label added to note", "", { duration: 2500 });
+          this.snackBar.open("Label added to note", "close", { duration: 2500 });
         } else {
-          this.snackBar.open("Label is not added to note", "", { duration: 2500 });
+          this.snackBar.open("Label is not added to note", "close", { duration: 2500 });
         }
       }
     );
@@ -104,9 +104,9 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("label/removefromnote?noteId=" + this.noteData.id + "&labelId=" + label.labelId, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
-          this.snackBar.open("Label removed from note", "", { duration: 2500 });
+          this.snackBar.open("Label removed from note", "close", { duration: 2500 });
         } else {
-          this.snackBar.open("Label is not removed from note", "", { duration: 2500 });
+          this.snackBar.open("Label is not removed from note", "close", { duration: 2500 });
         }
       }
     );
@@ -118,7 +118,7 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("note/color?colorCode=" + color + "&noteId=" + this.noteData.id, null).subscribe(
       (response: any)=>{
         if(response.statusCode === 1){
-          this.snackBar.open("Note color changed", "", { duration: 2500 });
+          this.snackBar.open("Note color changed", "close", { duration: 2500 });
         }
       }
     );

@@ -10,10 +10,10 @@ import { LabelService } from 'src/app/service/label.service';
 })
 export class LebelDialogboxComponent implements OnInit {
   label: any;
-  flag : boolean;
+  flag: boolean;
   allLabels: any[];
   labelName = new FormControl('');
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private labelService: LabelService, private snackbar: MatSnackBar,public dialogRef: MatDialogRef<LebelDialogboxComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private labelService: LabelService, private snackbar: MatSnackBar, public dialogRef: MatDialogRef<LebelDialogboxComponent>) { }
 
   ngOnInit() {
     this.getLabels();
@@ -46,34 +46,33 @@ export class LebelDialogboxComponent implements OnInit {
     );
   }
 
-  deletelabel(label){
+  deletelabel(label) {
     console.log("Delete label");
-    this.labelService.deleteRequest("label/delete?labelId="+label.labelId).subscribe(
-      (response: any)=>{
-        if(response.statusCode === 1){
-          this.snackbar.open("Label deleted","",{duration:2500})
-        }else{
-          this.snackbar.open("Label not deleted","",{duration:2500});
+    this.labelService.deleteRequest("label/delete?labelId=" + label.labelId).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.snackbar.open("Label deleted", "", { duration: 2500 })
+        } else {
+          this.snackbar.open("Label not deleted", "", { duration: 2500 });
         }
       }
     );
   }
 
-  labeledit(label){
+  labeledit(label) {
     this.label = {
       "labelName": this.labelName.value
     };
-    this.labelService.putRequest("label/update?labelId="+ label.labelId , this.label).subscribe(
-      (response : any)=>{
-        if(response.statusCode === 1){
-          this.snackbar.open("Label updated","",{duration:2500});
-        }else{
-          this.snackbar.open("Label updation failed","",{duration:2500});
+    this.labelService.putRequest("label/update?labelId=" + label.labelId, this.label).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.snackbar.open("Label updated", "", { duration: 2500 });
+        } else {
+          this.snackbar.open("Label updation failed", "", { duration: 2500 });
         }
       }
     );
-    
   }
 
-  
+
 }
