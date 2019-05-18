@@ -15,7 +15,7 @@
     <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" mat-button style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
-    <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" mat-button style="height: 20px;width: 20px;">
+    <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" (click)=openCollabDialog() mat-button style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
     <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button

@@ -30,6 +30,7 @@ import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { PinComponent } from './component/pin/pin.component';
 import { LebelDialogboxComponent } from './component/lebel-dialogbox/lebel-dialogbox.component';
+import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-box/collaborator-dialog-box.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { LebelDialogboxComponent } from './component/lebel-dialogbox/lebel-dialo
     TrashComponent,
     ArchiveComponent,
     PinComponent,
-    LebelDialogboxComponent
+    LebelDialogboxComponent,
+    CollaboratorDialogBoxComponent
   ],
 
   imports: [
@@ -74,7 +76,7 @@ import { LebelDialogboxComponent } from './component/lebel-dialogbox/lebel-dialo
     RouterModule
   ],
   providers: [],
-  entryComponents:[DialogboxComponent,LebelDialogboxComponent],
+  entryComponents:[DialogboxComponent,LebelDialogboxComponent,CollaboratorDialogBoxComponent],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

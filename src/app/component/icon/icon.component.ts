@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { LabelService } from 'src/app/service/label.service';
+import { CollaboratorDialogBoxComponent } from '../collaborator-dialog-box/collaborator-dialog-box.component';
 
 @Component({
   selector: 'app-icon',
@@ -32,13 +33,13 @@ export class IconComponent implements OnInit {
       { colorName: "gray", colorCode: "#A9A9A9" },
     ]
   ]
-  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService) { }
+  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService,public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getLabels();
     this.getLabelOfNote();
   }
-
+  
   trash() {
     console.log("Trash note");
     this.noteService.putRequest("note/trash?noteId=" + this.noteData.id, null).subscribe(
@@ -116,11 +117,22 @@ export class IconComponent implements OnInit {
     console.log(color);
     console.log(this.noteData.id);
     this.noteService.putRequest("note/color?colorCode=" + color + "&noteId=" + this.noteData.id, null).subscribe(
-      (response: any)=>{
-        if(response.statusCode === 1){
+      (response: any) => {
+        if (response.statusCode === 1) {
           this.snackBar.open("Note color changed", "close", { duration: 2500 });
         }
       }
     );
+  }
+
+  openCollabDialog() {
+    const dialogRef = this.dialog.open(CollaboratorDialogBoxComponent, {
+      width: '700px', minHeight: '100px',
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

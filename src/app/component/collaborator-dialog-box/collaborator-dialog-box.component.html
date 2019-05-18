@@ -1,0 +1,11 @@
+<div fxLayout="column" fxLayoutAlign="space-around start">
+  <div>Collaborators</div>
+  <hr>
+  <div fxLayout="row" fxLayoutAlign="start end">
+    <button mat-mini-fab>{{email  | slice:0:1}}</button>
+    <div style="padding-left: 10%;">
+      <div>{{email}}</div>
+      <span>(Owner)</span>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div style="overflow: hidden;margin-left: -26px;" class="main" [class.example-is-mobile]="mobileQuery.matches">
+<div style="overflow: hidden;margin-left: -26px;" class="main">
   <div style="margin-left: 15px;">
     <mat-toolbar>
 
@@ -74,9 +74,9 @@
 
   <mat-divider></mat-divider>
 
-  <div>
-    <mat-sidenav-container class="example-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav style="width:18%;padding: 2%;" #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+  <!-- <div> -->
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav style="width:18%;padding: 2%;" #sidenav mode="side" fixedTopGap="56">
         <mat-nav-list class="navlist">
           <mat-list>
 
@@ -128,5 +128,5 @@
         <!-- <app-add-note></app-add-note> -->
       </mat-sidenav-content>
     </mat-sidenav-container>
-  </div>
+  <!-- </div> -->
 </div>
