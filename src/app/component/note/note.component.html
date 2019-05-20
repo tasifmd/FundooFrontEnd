@@ -9,6 +9,32 @@
   <!-- [ngStyle]="{'background-color': items.colorCode}" -->
   <h6 style="margin-left: 20%">OTHERS</h6>
   <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px" style="margin-left: 5%">
+    <div *ngFor="let collabitems of collabNotes" fxLayoutGap="20px">
+      <mat-card class="matCard" [ngStyle]="{'background-color': collabitems.colorCode}">
+        <div fxLayout="row" fxLayoutAlign="end start" style="height: 30px;">
+          <button mat-icon-button (click)=pin(items)>
+            <img src="../../../assets/unpin.svg" matTooltip="Pin" mat-button style="height: 20px;width: 20px;">
+          </button>
+        </div>
+        <div class="card">
+          <div class="title" (click)="openDialog(collabitems)">{{ collabitems.title }}</div>
+          <div class="description" (click)="openDialog(collabitems)">{{ collabitems.description }}</div>
+        </div>
+
+        <!-- <div>
+          <button mat-icon-button>
+            <img src="../../../assets/more.svg" [matMenuTriggerFor]="moreBtn" mat-button
+              style="height: 20px;width: 20px;">
+          </button>
+          <mat-menu #moreBtn="matMenu">
+            <div><button mat-button (click)=removeMySelf(collabitems)>Remove myself</button></div>
+          </mat-menu>
+        </div> -->
+      </mat-card>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px" style="margin-left: 5%">
+
     <div *ngFor="let items of unpinned" class="cardcontaint" fxLayoutGap="20px">
       <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
         <div fxLayout="row" fxLayoutAlign="end start" style="height: 30px;">

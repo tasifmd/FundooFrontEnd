@@ -11,46 +11,50 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  user:LoginModel = new LoginModel();
-  loginForm : FormGroup;
-  token : string;
+  user: LoginModel = new LoginModel();
+  loginForm: FormGroup;
+  token: string;
+  userInfo: any;
   constructor(private snackBar: MatSnackBar,
-    private httpservice:HttpService,
+    private httpservice: HttpService,
     private formBuilder: FormBuilder,
-    private router : Router) { 
+    private router: Router) {
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group(
       {
-        'email':new FormControl(this.user.email,[Validators.required]),
-        'password':new FormControl(this.user.password,[Validators.required,Validators.minLength(6)])
+        'email': new FormControl(this.user.email, [Validators.required]),
+        'password': new FormControl(this.user.password, [Validators.required, Validators.minLength(6)])
       }
     )
+   
   }
 
-  onLogin(){
+  onLogin() {
     console.log("Login");
     console.log(this.user.email);
     this.token = localStorage.getItem('token');
-    this.httpservice.postRequest("login",this.user).subscribe(
-      (response:any) => {
-        if(response.statusCode === 1){
+    this.httpservice.postRequest("login", this.user).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
           console.log(response);
-          localStorage.setItem('token',response.token);
-          localStorage.setItem('email',this.user.email);
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('email', this.user.email);
+          localStorage.setItem('userName' , response.userName);
           this.snackBar.open(
             "Login Successfully",
             "undo",
-            {duration:2500}
+            { duration: 2500 }
           )
           this.router.navigate(['/dashboard']);
-        }else{
+          
+        } else {
           console.log(response);
           this.snackBar.open(
             "Login Failed",
             "undo",
-            {duration:2500}
+            { duration: 2500 }
           )
         }
       }

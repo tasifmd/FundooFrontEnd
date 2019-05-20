@@ -2,10 +2,47 @@
   <div>Collaborators</div>
   <hr>
   <div fxLayout="row" fxLayoutAlign="start end">
-    <button mat-mini-fab>{{email  | slice:0:1}}</button>
+    <button mat-mini-fab>{{userName  | slice:0:1}}</button>
     <div style="padding-left: 10%;">
-      <div>{{email}}</div>
+      <span style="font-weight: bold">{{userName}}</span>
       <span>(Owner)</span>
+      <div>{{email}}</div>
+    </div>
+  </div>
+  <div *ngFor="let items of collabUser" style="padding-top:2%;">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <div style="width: 620px">
+        <button mat-mini-fab> {{ items.name | slice:0:1}}</button>
+        <span style="padding-left: 20px;">{{items.email}}</span>
+
+      </div>
+      <div>
+        <button mat-icon-button (click)="removeCollab(items)">
+          <img src="../../../assets/cross.svg" mat-button matTooltip="Delete" style="height: 20px;width: 20px;">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div style="padding-top:2%;" fxLayout="row" fxLayoutAlign="start center">
+    <div style="padding-left:2%;">
+      <mat-icon>person_add</mat-icon>
+    </div>
+    <div style="width: 550px;padding-left:5%;padding-bottom: 1%;">
+      <input matInput placeholder="Person or email to share with" [formControl]="shareEmail">
+    </div>
+    <div>
+      <button mat-icon-button (click)="addCollab()">
+        <mat-icon matTooltip="Add Collaborators">done</mat-icon>
+      </button>
+    </div>
+
+  </div>
+  <div fxLayout="row">
+    <div>
+      <button mat-button (click)=cancel()>Cancel</button>
+    </div>
+    <div>
+      <button mat-button (click)=save()>Save</button>
     </div>
   </div>
 </div>

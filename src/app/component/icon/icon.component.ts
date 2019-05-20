@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from 'src/app/service/note.service';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
 import { LabelService } from 'src/app/service/label.service';
 import { CollaboratorDialogBoxComponent } from '../collaborator-dialog-box/collaborator-dialog-box.component';
 
@@ -13,6 +13,7 @@ export class IconComponent implements OnInit {
   @Input() noteData: any;
   allLabels: any[];
   labelsOfNotes: any[];
+  collabUsers : any[];
   colors = [
     [
       { colorName: "white", colorCode: "#FFFFFF" },
@@ -38,8 +39,9 @@ export class IconComponent implements OnInit {
   ngOnInit() {
     this.getLabels();
     this.getLabelOfNote();
+    this.getCollabOfNote();
   }
-  
+
   trash() {
     console.log("Trash note");
     this.noteService.putRequest("note/trash?noteId=" + this.noteData.id, null).subscribe(
@@ -95,8 +97,9 @@ export class IconComponent implements OnInit {
     this.noteService.getRequest("label/getlebelofnote?noteId=" + this.noteData.id).subscribe(
       (response: any) => {
         this.labelsOfNotes = response;
-        console.log(this.noteData.id);
-        console.log(this.labelsOfNotes);
+        // console.log("Label Of Notes");
+        // console.log(this.noteData.id);
+
       }
     );
   }
@@ -128,11 +131,23 @@ export class IconComponent implements OnInit {
   openCollabDialog() {
     const dialogRef = this.dialog.open(CollaboratorDialogBoxComponent, {
       width: '700px', minHeight: '100px',
-      
+      data: {
+        noteId: this.noteData.id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+
+  getCollabOfNote() {
+    this.noteService.getRequest("note/getallcollaborateduser?noteId=" + this.noteData.id).subscribe(
+      (response : any) => {
+        this.collabUsers = response;
+      }
+    );
+  }
+
+  
 }

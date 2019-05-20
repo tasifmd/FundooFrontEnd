@@ -13,6 +13,7 @@ export class NoteComponent implements OnInit {
   unpinned: any[];
   data: any[];
   labelsOfNotes: any[];
+  collabNotes : any[];
   constructor(private noteService: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar, private dataService: DataService) {
    
   }
@@ -24,6 +25,7 @@ export class NoteComponent implements OnInit {
     //   }
     // );
     this.getUnPinned();
+    this.getCollaboratedNotes();
   }
 
   openDialog(items): void {
@@ -67,4 +69,25 @@ export class NoteComponent implements OnInit {
   //     }
   //   );
   // }
+
+  getCollaboratedNotes(){
+    this.noteService.getRequest("note/getallcollaboratednotes").subscribe(
+      (response : any) => {
+        this.collabNotes = response;
+        console.log(this.collabNotes);
+      }
+    );
+  }
+
+  removeMySelf(collabitems){
+    this.noteService.putRequest("note/removecollaborator?email=" + localStorage.getItem('email') + "&noteId=" + collabitems.id,null).subscribe(
+      (response : any) => {
+        if(response.statusCode === 1){
+          this.snackBar.open("Note removed from collab","close",{duration:2500});
+        }else{
+          this.snackBar.open("Note not removed from collab","close",{duration:2500});
+        }
+      }
+    );
+  }
 }

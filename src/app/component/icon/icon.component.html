@@ -1,5 +1,10 @@
 <div>
   <div fxLayout="row wrap" style="visibility: visible">
+
+    <div *ngFor = "let collabitems of collabUsers">
+        <mat-icon matTooltip={{collabitems.email}} (click)=openCollabDialog()>account_circle</mat-icon>
+    </div>
+
     <mat-chip-list #chipList>
       <mat-chip *ngFor="let items of labelsOfNotes">
         {{ items.labelName }}

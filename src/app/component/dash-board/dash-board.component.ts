@@ -30,6 +30,7 @@ export class DashBoardComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
+    localStorage.removeItem('userName');
     this.router.navigate(['/login']);
   }
   openDialogLabel() :void {
