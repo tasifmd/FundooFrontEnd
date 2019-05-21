@@ -75,58 +75,58 @@
   <mat-divider></mat-divider>
 
   <!-- <div> -->
-    <mat-sidenav-container class="example-container">
-      <mat-sidenav style="width:18%;padding: 2%;" #sidenav mode="side" fixedTopGap="56">
-        <mat-nav-list class="navlist">
-          <mat-list>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav style="width:18%;padding: 2%;" #sidenav mode="side" fixedTopGap="56">
+      <mat-nav-list class="navlist">
+        <mat-list>
 
-            <div>
-              <button mat-button [routerLink]="['note']">
-                <mat-icon>lightbulb_outline</mat-icon> Notes
-              </button>
-            </div>
+          <div>
+            <button mat-button [routerLink]="['note']">
+              <mat-icon>lightbulb_outline</mat-icon> Notes
+            </button>
+          </div>
 
-            <div>
+          <div>
+            <button mat-button>
+              <mat-icon>notifications_none</mat-icon> Remainder
+            </button>
+          </div>
+          <hr>
+          <mat-divider></mat-divider>
+          <div style="padding-left:15%;">
+            <h5>LABELS</h5>
+          </div>
+          <div>
+            <div *ngFor="let items of allLabels" fxLayout="row">
               <button mat-button>
-                <mat-icon>notifications_none</mat-icon> Remainder
+                <img src="../../../assets/arrow.svg" style="height: 20px;width: 20px;">
               </button>
+              <div>{{ items.labelName }}</div>
             </div>
-            <hr>
-            <mat-divider></mat-divider>
-            <div style="padding-left:15%;">
-              <h5>LABELS</h5>
-            </div>
-            <div>
-              <div *ngFor="let items of allLabels" fxLayout="row">
-                <button mat-button>
-                  <img src="../../../assets/arrow.svg" style="height: 20px;width: 20px;">
-                </button>
-                <div>{{ items.labelName }}</div>
-              </div>
-              <button mat-button (click)=openDialogLabel()>
-                <mat-icon>edit</mat-icon> Edit Labels
-              </button>
-            </div>
-            <mat-divider></mat-divider>
-            <hr>
-            <div>
-              <button mat-button [routerLink]="['archive']">
-                <mat-icon>archive</mat-icon> Archive
-              </button>
-            </div>
-            <div>
-              <button mat-button [routerLink]="['trash']">
-                <mat-icon>delete</mat-icon> Trash
-              </button>
-            </div>
-          </mat-list>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content class="sidenav">
-        <!-- <p>Welcome to fundoo notes</p> -->
-        <router-outlet></router-outlet>
-        <!-- <app-add-note></app-add-note> -->
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+            <button mat-button (click)=openDialogLabel()>
+              <mat-icon>edit</mat-icon> Edit Labels
+            </button>
+          </div>
+          <mat-divider></mat-divider>
+          <hr>
+          <div>
+            <button mat-button [routerLink]="['archive']">
+              <mat-icon>archive</mat-icon> Archive
+            </button>
+          </div>
+          <div>
+            <button mat-button [routerLink]="['trash']">
+              <mat-icon>delete</mat-icon> Trash
+            </button>
+          </div>
+        </mat-list>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav">
+      <!-- <p>Welcome to fundoo notes</p> -->
+      <router-outlet></router-outlet>
+      <!-- <app-add-note></app-add-note> -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
   <!-- </div> -->
 </div>

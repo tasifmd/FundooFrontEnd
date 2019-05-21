@@ -26,17 +26,16 @@ export class DashBoardComponent implements OnInit {
     this.email = localStorage.getItem('email');
     this.getLabels();
   }
-
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('userName');
     this.router.navigate(['/login']);
   }
-  openDialogLabel() :void {
+  openDialogLabel(): void {
     const dialogRef = this.dialog.open(LebelDialogboxComponent, {
       width: '300px', minHeight: '100px',
-      
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
