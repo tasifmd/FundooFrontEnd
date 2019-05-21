@@ -1,46 +1,48 @@
 <div class="main">
-  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px" style="margin-left: 5%">
-    <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center" fxLayoutGap="5px">
-      <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
-        <div class="card">
-          <div class="title">{{ items.title }}</div>
-          <div class="description">{{ items.description }}</div>
-        </div>
-        <div>
-          <div>
-            <button mat-icon-button>
-              <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" mat-button
-                style="height: 20px;width: 20px;">
-            </button>
-            <button mat-icon-button>
-              <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" mat-button
-                style="height: 20px;width: 20px;">
-            </button>
-            <button mat-icon-button>
-              <img src="../../../assets/color.svg" matTooltip="Color" mat-button style="height: 20px;width: 20px;">
-            </button>
-            <button mat-icon-button>
-              <img src="../../../assets/image.svg" matTooltip="Image" mat-button style="height: 20px;width: 20px;">
-            </button>
-            <button mat-icon-button (click)=unarchive(items)>
-              <img src="../../../assets/unarchive.svg" matTooltip="Unarchive" mat-button
-                style="height: 20px;width: 20px;">
-            </button>
-            <button mat-icon-button>
-              <img src="../../../assets/more.svg" matTooltip="More" mat-button [matMenuTriggerFor]="moreBtn"
-                style="height: 20px;width: 20px;">
-            </button>
+  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px" style="margin-left: 5%">
+    <div *ngFor="let items of notes" class="cardcontaint" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+      <div style="padding-top:5%">
+        <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
+          <div class="card">
+            <div class="title">{{ items.title }}</div>
+            <div class="description">{{ items.description }}</div>
           </div>
-          <mat-menu #moreBtn="matMenu">
+          <div>
             <div>
-              <div><button mat-button (click)=trash()>Delete Note</button></div>
-              <div><button mat-button>Add Lebel</button></div>
-              <div><button mat-button>Add Drawing</button></div>
-              <div><button mat-button>Restore</button></div>
+              <button mat-icon-button>
+                <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" mat-button
+                  style="height: 20px;width: 20px;">
+              </button>
+              <button mat-icon-button>
+                <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" mat-button
+                  style="height: 20px;width: 20px;">
+              </button>
+              <button mat-icon-button>
+                <img src="../../../assets/color.svg" matTooltip="Color" mat-button style="height: 20px;width: 20px;">
+              </button>
+              <button mat-icon-button>
+                <img src="../../../assets/image.svg" matTooltip="Image" mat-button style="height: 20px;width: 20px;">
+              </button>
+              <button mat-icon-button (click)=unarchive(items)>
+                <img src="../../../assets/unarchive.svg" matTooltip="Unarchive" mat-button
+                  style="height: 20px;width: 20px;">
+              </button>
+              <button mat-icon-button>
+                <img src="../../../assets/more.svg" matTooltip="More" mat-button [matMenuTriggerFor]="moreBtn"
+                  style="height: 20px;width: 20px;">
+              </button>
             </div>
-          </mat-menu>
-        </div>
-      </mat-card>
+            <mat-menu #moreBtn="matMenu">
+              <div>
+                <div><button mat-button (click)=trash()>Delete Note</button></div>
+                <div><button mat-button>Add Lebel</button></div>
+                <div><button mat-button>Add Drawing</button></div>
+                <div><button mat-button>Restore</button></div>
+              </div>
+            </mat-menu>
+          </div>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>
