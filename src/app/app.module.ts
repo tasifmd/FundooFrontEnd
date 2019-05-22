@@ -18,6 +18,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { LoginComponent } from './component/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ImageCropperModule } from 'ngx-image-cropper';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { RouterModule } from '@angular/router';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
@@ -31,6 +32,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { PinComponent } from './component/pin/pin.component';
 import { LebelDialogboxComponent } from './component/lebel-dialogbox/lebel-dialogbox.component';
 import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-box/collaborator-dialog-box.component';
+import { ProfileDialogComponent } from './component/profile-dialog/profile-dialog.component';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-
     ArchiveComponent,
     PinComponent,
     LebelDialogboxComponent,
-    CollaboratorDialogBoxComponent
+    CollaboratorDialogBoxComponent,
+    ProfileDialogComponent
   ],
 
   imports: [
@@ -73,10 +76,11 @@ import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    RouterModule
+    RouterModule,
+    ImageCropperModule
   ],
   providers: [],
-  entryComponents:[DialogboxComponent,LebelDialogboxComponent,CollaboratorDialogBoxComponent],
+  entryComponents:[DialogboxComponent,LebelDialogboxComponent,CollaboratorDialogBoxComponent,ProfileDialogComponent],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

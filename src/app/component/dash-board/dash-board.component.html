@@ -45,7 +45,7 @@
         </div>
         <div fxFlex="20">
           <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}}>
-            <mat-icon style="font-size:25px">account_circle</mat-icon>
+            <img mat-card-avatar src="http://localhost:8080/user/getuploadedimage/{{token}}" />
           </button>
         </div>
       </div>
@@ -53,9 +53,11 @@
     </mat-toolbar>
 
     <mat-menu #accountmenu="matMenu">
-      <mat-card style="height: 100px;width: 245px;">
+      <mat-card style="height: 120px;width: 245px;">
         <div fxLayout="row">
-          <mat-icon>account_circle</mat-icon>
+          <button mat-button (click)=profileDialog()>
+            <img mat-card-avatar src="http://localhost:8080/user/getuploadedimage/{{token}}" />
+          </button>
         </div>
         <p fxLayout="row" fxLayoutAlign="center center"> {{email}} </p>
         <mat-divider></mat-divider>
@@ -74,7 +76,7 @@
 
   <mat-divider></mat-divider>
 
-  <!-- <div> -->
+
   <mat-sidenav-container class="example-container">
     <mat-sidenav style="width:18%;padding: 2%;" #sidenav mode="side" fixedTopGap="56">
       <mat-nav-list class="navlist">
@@ -123,10 +125,10 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="sidenav">
-      <!-- <p>Welcome to fundoo notes</p> -->
+
       <router-outlet></router-outlet>
-      <!-- <app-add-note></app-add-note> -->
+
     </mat-sidenav-content>
   </mat-sidenav-container>
-  <!-- </div> -->
+
 </div>

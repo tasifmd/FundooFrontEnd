@@ -6,7 +6,6 @@ const httpOptions = {
   headers: new HttpHeaders().set('Content-Type', 'application/json')
     .set('Access-Control-Allow-Origin', '*')
     .set('Access-Control-Allow-Headers', '*')
-
 };
 @Injectable({
   providedIn: 'root'
@@ -38,4 +37,6 @@ export class NoteService {
       headers: new HttpHeaders().set('token', localStorage.getItem('token'))
     });
   }
+
+  
 }
