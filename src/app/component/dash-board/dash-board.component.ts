@@ -16,7 +16,7 @@ import { HttpService } from 'src/app/service/http-service';
 export class DashBoardComponent implements OnInit {
   token: string;
   email: string;
-
+  name: string;
   user: LoginModel = new LoginModel();
   allLabels: any[];
   constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar) {
@@ -25,6 +25,7 @@ export class DashBoardComponent implements OnInit {
   ngOnInit() {
     this.token = localStorage.getItem('token');
     this.email = localStorage.getItem('email');
+    this.name = localStorage.getItem('userName');
     this.getLabels();
   }
   logout() {
