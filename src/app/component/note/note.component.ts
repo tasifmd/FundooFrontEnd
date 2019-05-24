@@ -57,7 +57,7 @@ export class NoteComponent implements OnInit {
     this.noteService.getRequest('note/getunpinnednotes').subscribe(
       (response: any) => {
         this.unpinned = response;
-        // console.log(response);
+        console.log(response);
       }
     )
   }
