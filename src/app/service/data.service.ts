@@ -7,28 +7,12 @@ import { NoteService } from './note.service';
   providedIn: 'root'
 })
 export class DataService {
-  private obtainNotes = new BehaviorSubject([]);
-  currentNotes = this.obtainNotes.asObservable();
+  private messageSource = new BehaviorSubject('default message');
+  currentMessage = this.messageSource.asObservable();
 
-  constructor(private noteService: NoteService) {
-    this.getUnpinnedNotes();
-    this.getPinnedNotes();
+  constructor() { }
+  
+  changeMessage(message: string) {
+    this.messageSource.next(message)
   }
-
-  getUnpinnedNotes() {
-    this.noteService.getRequest("note/getunpinnednotes").subscribe(
-      (response: any) => {
-        this.obtainNotes.next(response);
-      }
-    );
-  }
-
-  getPinnedNotes(){
-    this.noteService.getRequest("note/getpinnednotes").subscribe(
-      (response: any) => {
-        this.obtainNotes.next(response);
-      }
-    );
-  }
-
 }

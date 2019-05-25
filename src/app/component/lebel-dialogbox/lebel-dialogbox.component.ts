@@ -1,3 +1,4 @@
+import { DataService } from 'src/app/service/data.service';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
@@ -13,10 +14,16 @@ export class LebelDialogboxComponent implements OnInit {
   flag: boolean;
   allLabels: any[];
   labelName = new FormControl('');
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private labelService: LabelService, private snackbar: MatSnackBar, public dialogRef: MatDialogRef<LebelDialogboxComponent>) { }
+  message : any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private labelService: LabelService, private snackbar: MatSnackBar, public dialogRef: MatDialogRef<LebelDialogboxComponent>,private dataService : DataService) { }
 
   ngOnInit() {
-    this.getLabels();
+    this.dataService.currentMessage.subscribe(
+      (response:any)=> {
+        this.message=response;
+        this.getLabels();
+      }
+    );
   }
 
   addLabel() {
@@ -27,6 +34,7 @@ export class LebelDialogboxComponent implements OnInit {
     this.labelService.postRequest("label/create", this.label).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackbar.open("Label created", "undo", { duration: 2500 })
         } else {
           this.snackbar.open("Label creation failed", "undo", { duration: 2500 })
@@ -51,6 +59,7 @@ export class LebelDialogboxComponent implements OnInit {
     this.labelService.deleteRequest("label/delete?labelId=" + label.labelId).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackbar.open("Label deleted", "", { duration: 2500 })
         } else {
           this.snackbar.open("Label not deleted", "", { duration: 2500 });
@@ -66,6 +75,7 @@ export class LebelDialogboxComponent implements OnInit {
     this.labelService.putRequest("label/update?labelId=" + label.labelId, this.label).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackbar.open("Label updated", "", { duration: 2500 });
         } else {
           this.snackbar.open("Label updation failed", "", { duration: 2500 });

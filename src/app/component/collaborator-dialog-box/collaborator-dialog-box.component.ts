@@ -1,3 +1,4 @@
+import { DataService } from 'src/app/service/data.service';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/service/http-service';
 import { Component, OnInit, Inject, Input } from '@angular/core';
@@ -14,13 +15,21 @@ export class CollaboratorDialogBoxComponent implements OnInit {
   email: string;
   userName: string;
   collabUser: any[];
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<CollaboratorDialogBoxComponent>) { }
+  message: any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<CollaboratorDialogBoxComponent>, private dataService: DataService) { }
   shareEmail = new FormControl('', Validators.email);
-  
+
   ngOnInit() {
+
+    this.dataService.currentMessage.subscribe(
+      (response: any) => {
+        this.message = response;
+        this.getCollabUser();
+      }
+    );
     this.userName = localStorage.getItem('userName');
     this.email = localStorage.getItem('email');
-    this.getCollabUser();
+
 
   }
 
@@ -42,6 +51,7 @@ export class CollaboratorDialogBoxComponent implements OnInit {
     this.noteService.putRequest("note/addcollaborator?email=" + data.shareEmail + "&noteId=" + this.data.noteId, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Note collabotared", "Close", { duration: 2500 });
         }
         else {
@@ -53,22 +63,23 @@ export class CollaboratorDialogBoxComponent implements OnInit {
 
   removeCollab(item) {
     console.log(item.email);
-    this.noteService.putRequest("note/removecollaborator?email=" + item.email + "&noteId=" + this.data.noteId ,null).subscribe(
-      (response : any) => {
-        if(response.statusCode === 1){
+    this.noteService.putRequest("note/removecollaborator?email=" + item.email + "&noteId=" + this.data.noteId, null).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Collabotared note removed", "Close", { duration: 2500 });
-        }else{
+        } else {
           this.snackBar.open("Collabotared note not removed", "Close", { duration: 2500 });
         }
       }
     );
   }
 
-  cancel(){
+  cancel() {
     this.dialogRef.close();
   }
 
-  save(){
+  save() {
     this.addCollab();
     this.dialogRef.close();
   }

@@ -2,6 +2,7 @@ import { DialogboxComponent } from './../dialogbox/dialogbox.component';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { NoteService } from './../../service/note.service';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-pin',
@@ -11,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 export class PinComponent implements OnInit {
   notes: any[];
   note: any;
-  constructor(private noteService: NoteService, private snackBar: MatSnackBar, public dialog: MatDialog) { }
+  message : any;
+  constructor(private noteService: NoteService, private snackBar: MatSnackBar, public dialog: MatDialog ,private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.currentMessage.subscribe(
+      (response:any)=> {
+        this.message=response;
+        this.getPinned();
+      }
+    );
+  }
+  getPinned(){
     console.log("Pinned Notes")
     this.noteService.getRequest("note/getpinnednotes").subscribe(
       (response: any) => {
@@ -42,6 +52,7 @@ export class PinComponent implements OnInit {
     this.noteService.putRequest("note/pin?noteId="+ note.id,null).subscribe(
       (response: any)=>{
         if(response.statusCode === 1){
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Note unpinned" ,"undo" ,{duration:2500});
         }
       }

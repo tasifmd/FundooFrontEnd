@@ -1,8 +1,11 @@
 <div>
   <div fxLayout="row wrap" style="visibility: visible">
 
-    <div *ngFor = "let collabitems of collabUsers">
-        <mat-icon matTooltip={{collabitems.email}} (click)=openCollabDialog()>account_circle</mat-icon>
+    <div *ngFor="let collabitems of collabUsers">
+      <!-- <button mat-button (click)=openCollabDialog() matTooltip={{collabitems.email}}>
+        <img mat-card-avatar src="http://localhost:8080/user/getuploadedimage/{{token}}" />
+      </button> -->
+      <mat-icon matTooltip={{collabitems.email}} (click)=openCollabDialog()>account_circle</mat-icon>
     </div>
 
     <mat-chip-list #chipList>
@@ -20,7 +23,8 @@
     <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" mat-button style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
-    <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" (click)=openCollabDialog() mat-button style="height: 20px;width: 20px;">
+    <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" (click)=openCollabDialog() mat-button
+      style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
     <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button
@@ -66,7 +70,8 @@
   <mat-menu #color="matMenu" [overlapTrigger]="false">
     <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
       <div *ngFor="let noteColor of color">
-        <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="setColor(noteColor.colorName)" matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
+        <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="setColor(noteColor.colorName)"
+          matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
       </div>
     </div>
   </mat-menu>

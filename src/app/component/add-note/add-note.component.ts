@@ -2,6 +2,7 @@ import { NoteService } from './../../service/note.service';
 import { NoteModel } from './../../model/note-model';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-add-note',
@@ -13,7 +14,7 @@ export class AddNoteComponent implements OnInit {
   private showAddNote: boolean;
   note : NoteModel = new NoteModel();
 
-  constructor(private noteService : NoteService , private snackBar: MatSnackBar) { }
+  constructor(private noteService : NoteService , private snackBar: MatSnackBar ,private dataService : DataService) { }
 
   ngOnInit() {
 
@@ -29,6 +30,7 @@ export class AddNoteComponent implements OnInit {
     this.noteService.postRequest("note/create" , this.note).subscribe(
       (response : any) => {
         if(response.statusCode === 1){
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open(
             "Note created successfully","",{duration:2500}
           );

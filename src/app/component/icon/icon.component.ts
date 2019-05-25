@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/service/note.service';
 import { MatSnackBar, MatDialog, MatDialogRef } from '@angular/material';
 import { LabelService } from 'src/app/service/label.service';
 import { CollaboratorDialogBoxComponent } from '../collaborator-dialog-box/collaborator-dialog-box.component';
+import { DataService } from 'src/app/service/data.service';
 
 @Component({
   selector: 'app-icon',
@@ -34,12 +35,20 @@ export class IconComponent implements OnInit {
       { colorName: "gray", colorCode: "#A9A9A9" },
     ]
   ]
-  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService,public dialog: MatDialog) { }
+  message : any;
+  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService,public dialog: MatDialog , private dataService: DataService) { }
 
   ngOnInit() {
-    this.getLabels();
-    this.getLabelOfNote();
-    this.getCollabOfNote();
+    this.dataService.currentMessage.subscribe(
+      (response:any)=> {
+        this.message=response;
+        this.getLabels();
+        this.getLabelOfNote();
+        this.getCollabOfNote();
+      }
+    );
+
+   
   }
 
   trash() {
@@ -47,6 +56,7 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("note/trash?noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Note Trashed", "close", { duration: 2500 });
         }
       }
@@ -58,6 +68,7 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("note/archive?noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Note archieved", "close", { duration: 2500 });
         } else {
           this.snackBar.open("Note archieve failed", "close", { duration: 2500 });
@@ -85,6 +96,7 @@ export class IconComponent implements OnInit {
     this.labelService.putRequest("label/addlebeltonote?labelId=" + label.labelId + "&noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Label added to note", "close", { duration: 2500 });
         } else {
           this.snackBar.open("Label is not added to note", "close", { duration: 2500 });
@@ -97,9 +109,6 @@ export class IconComponent implements OnInit {
     this.noteService.getRequest("label/getlebelofnote?noteId=" + this.noteData.id).subscribe(
       (response: any) => {
         this.labelsOfNotes = response;
-        // console.log("Label Of Notes");
-        // console.log(this.noteData.id);
-
       }
     );
   }
@@ -108,6 +117,7 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("label/removefromnote?noteId=" + this.noteData.id + "&labelId=" + label.labelId, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Label removed from note", "close", { duration: 2500 });
         } else {
           this.snackBar.open("Label is not removed from note", "close", { duration: 2500 });
@@ -122,6 +132,7 @@ export class IconComponent implements OnInit {
     this.noteService.putRequest("note/color?colorCode=" + color + "&noteId=" + this.noteData.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Note color changed", "close", { duration: 2500 });
         }
       }

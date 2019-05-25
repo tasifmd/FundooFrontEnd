@@ -14,18 +14,20 @@ export class NoteComponent implements OnInit {
   data: any[];
   labelsOfNotes: any[];
   collabNotes : any[];
+  message: any;
   constructor(private noteService: NoteService, public dialog: MatDialog, private snackBar: MatSnackBar, private dataService: DataService) {
    
   }
 
   ngOnInit() {
-    // this.dataService.currentNotes.subscribe(
-    //   (response: any) => {
-    //     this.unpinned = response;
-    //   }
-    // );
-    this.getUnPinned();
-    this.getCollaboratedNotes();
+    this.dataService.currentMessage.subscribe(
+      (response:any)=> {
+        this.message=response;
+        this.getUnPinned();
+        this.getCollaboratedNotes();
+      }
+    );
+
   }
 
   openDialog(items): void {
@@ -47,6 +49,7 @@ export class NoteComponent implements OnInit {
     this.noteService.putRequest("note/pin?noteId=" + items.id, null).subscribe(
       (response: any) => {
         if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open("Note pinned successfully")
         }
       }

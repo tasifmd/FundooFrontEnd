@@ -1,3 +1,4 @@
+import { DataService } from 'src/app/service/data.service';
 
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
@@ -19,14 +20,21 @@ export class DashBoardComponent implements OnInit {
   name: string;
   user: LoginModel = new LoginModel();
   allLabels: any[];
-  constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar) {
+  message : any;
+  constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService) {
   }
 
   ngOnInit() {
     this.token = localStorage.getItem('token');
     this.email = localStorage.getItem('email');
     this.name = localStorage.getItem('userName');
-    this.getLabels();
+
+    this.dataService.currentMessage.subscribe(
+      (response: any) => {
+        this.message = response;
+        this.getLabels();
+      }
+    );
   }
   logout() {
     localStorage.removeItem('token');
@@ -66,9 +74,9 @@ export class DashBoardComponent implements OnInit {
         this.httpService.uploadImage("uploadprofilepic", image.file).subscribe(
           (response: any) => {
             if (response.statusCode === 1) {
-              this.snackBar.open(response.statusMessage,"close",{duration: 2500});
-            }else{
-              this.snackBar.open(response.statusMessage,"close",{duration: 2500});
+              this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
+            } else {
+              this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
             }
           }
         );
