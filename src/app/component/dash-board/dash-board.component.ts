@@ -74,6 +74,7 @@ export class DashBoardComponent implements OnInit {
         this.httpService.uploadImage("uploadprofilepic", image.file).subscribe(
           (response: any) => {
             if (response.statusCode === 1) {
+              this.dataService.changeMessage(response.statusMessage);
               this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
             } else {
               this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
