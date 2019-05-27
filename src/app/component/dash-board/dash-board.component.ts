@@ -8,6 +8,8 @@ import { LebelDialogboxComponent } from '../lebel-dialogbox/lebel-dialogbox.comp
 import { LabelService } from 'src/app/service/label.service';
 import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.component';
 import { HttpService } from 'src/app/service/http-service';
+import { NoteService } from 'src/app/service/note.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-dash-board',
@@ -21,7 +23,9 @@ export class DashBoardComponent implements OnInit {
   user: LoginModel = new LoginModel();
   allLabels: any[];
   message : any;
-  constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService) {
+  private obtainNotes = new BehaviorSubject([]);
+  currentMessage = this.obtainNotes.asObservable();
+  constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService, private noteService: NoteService) {
   }
 
   ngOnInit() {
@@ -83,5 +87,15 @@ export class DashBoardComponent implements OnInit {
         );
       }
     });
+  }
+
+  onSearchChange(message: string) {
+    this.noteService.getRequest("note/search?query=" + message).subscribe(
+      (response: any) => {
+        this.obtainNotes.next(response);
+        console.log(response);
+        this.router.navigate(['/dashboard/search']);
+      }
+    );
   }
 }

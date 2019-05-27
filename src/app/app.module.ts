@@ -33,6 +33,8 @@ import { PinComponent } from './component/pin/pin.component';
 import { LebelDialogboxComponent } from './component/lebel-dialogbox/lebel-dialogbox.component';
 import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-box/collaborator-dialog-box.component';
 import { ProfileDialogComponent } from './component/profile-dialog/profile-dialog.component';
+import { SearchComponent } from './component/search/search.component';
+import { RemainderComponent } from './component/remainder/remainder.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { ProfileDialogComponent } from './component/profile-dialog/profile-dialo
     PinComponent,
     LebelDialogboxComponent,
     CollaboratorDialogBoxComponent,
-    ProfileDialogComponent
+    ProfileDialogComponent,
+    SearchComponent,
+    RemainderComponent
   ],
 
   imports: [

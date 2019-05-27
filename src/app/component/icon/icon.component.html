@@ -1,17 +1,22 @@
 <div>
   <div fxLayout="row wrap" style="visibility: visible">
 
+    <mat-chip-list #chipList>
+      <mat-chip *ngIf="notereminder!=null">
+        {{notereminder |  date:'medium'}}
+        <mat-icon matChipRemove (click)="removeremainder()">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+
+
     <div *ngFor="let collabitems of collabUsers">
-      <!-- <button mat-button (click)=openCollabDialog() matTooltip={{collabitems.email}}>
-        <img mat-card-avatar src="http://localhost:8080/user/getuploadedimage/{{token}}" />
-      </button> -->
       <mat-icon matTooltip={{collabitems.email}} (click)=openCollabDialog()>account_circle</mat-icon>
     </div>
 
     <mat-chip-list #chipList>
       <mat-chip *ngFor="let items of labelsOfNotes">
         {{ items.labelName }}
-        <mat-icon (click)="removeLabelFromNote(items)">cancel</mat-icon>
+        <mat-icon matChipRemove (click)="removeLabelFromNote(items)">cancel</mat-icon>
       </mat-chip>
 
     </mat-chip-list>
@@ -20,7 +25,8 @@
 <div fxLayout="row" fxLayoutAlign="space-between start">
 
   <button mat-icon-button>
-    <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" mat-button style="height: 20px;width: 20px;">
+    <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" [matMenuTriggerFor]="reminderMenu" mat-button
+      (click)="reminder()" style="height: 20px;width: 20px;">
   </button>
   <button mat-icon-button>
     <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" (click)=openCollabDialog() mat-button
@@ -51,7 +57,27 @@
       <button mat-button>Restore</button>
     </div>
   </mat-menu>
-
+  <mat-menu #reminderMenu="matMenu">
+    <span mat-menu-item>Remainder:</span>
+    <button mat-menu-item (click)=today()>
+      <span>Later today</span>
+      <span> 8:00 PM</span>
+    </button>
+    <button mat-menu-item (click)=tomorrow()>
+      <span>Tommorow</span>
+      <span> 8:00 PM</span>
+    </button>
+    <button mat-menu-item (click)=nextweek()>
+      <span>Next week</span>
+      <span> Mon,8:00 PM</span>
+    </button>
+    <button mat-menu-item>
+      <span>
+        <mat-icon style="">schedule</mat-icon>
+        Pick data & Time
+      </span>
+    </button>
+  </mat-menu>
   <div>
     <mat-menu #label="matMenu">
       <div fxLayout="column">

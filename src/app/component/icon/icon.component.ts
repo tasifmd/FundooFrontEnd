@@ -14,7 +14,9 @@ export class IconComponent implements OnInit {
   @Input() noteData: any;
   allLabels: any[];
   labelsOfNotes: any[];
-  collabUsers : any[];
+  collabUsers: any[];
+  remData: any;
+  notereminder: any;
   colors = [
     [
       { colorName: "white", colorCode: "#FFFFFF" },
@@ -35,20 +37,21 @@ export class IconComponent implements OnInit {
       { colorName: "gray", colorCode: "#A9A9A9" },
     ]
   ]
-  message : any;
-  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService,public dialog: MatDialog , private dataService: DataService) { }
+  message: any;
+  constructor(private noteService: NoteService, private snackBar: MatSnackBar, private labelService: LabelService, public dialog: MatDialog, private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.currentMessage.subscribe(
-      (response:any)=> {
-        this.message=response;
+      (response: any) => {
+        this.message = response;
         this.getLabels();
         this.getLabelOfNote();
         this.getCollabOfNote();
+        this.getRemainder();
       }
     );
 
-   
+
   }
 
   trash() {
@@ -154,11 +157,88 @@ export class IconComponent implements OnInit {
 
   getCollabOfNote() {
     this.noteService.getRequest("note/getallcollaborateduser?noteId=" + this.noteData.id).subscribe(
-      (response : any) => {
+      (response: any) => {
         this.collabUsers = response;
       }
     );
   }
 
-  
+  reminder() {
+    console.log("Inside reminder");
+    this.remData = {
+      id: this.noteData.id,
+      time: this.remData
+    }
+    //console.log(this.remData.id)
+  }
+
+  today() {
+    let curDate = new Date();
+    this.remData = {
+      reminder: curDate.toISOString()
+    }
+    console.log(this.remData.reminder);
+    this.noteService.putRequest("note/addreminder?noteId=" + this.noteData.id + "&reminder=" + this.remData.reminder, null).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
+        }
+      }
+    );
+  }
+
+  tomorrow() {
+    let curDate = new Date();
+    var nextDay = new Date(curDate);
+    nextDay.setDate(curDate.getDate() + 1);
+    this.remData = {
+      reminder: nextDay.toISOString()
+    }
+    console.log(this.remData.reminder);
+    this.noteService.putRequest("note/addreminder?noteId=" + this.noteData.id + "&reminder=" + this.remData.reminder, null).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
+        }
+      }
+    );
+  }
+
+  nextweek() {
+    var day = new Date();
+
+    var days = 7 - day.getDay() + 4;
+
+    var nextDay = new Date(day.setDate(day.getDate() + days));
+    this.remData = {
+      reminder: nextDay.toISOString()
+    }
+    console.log(this.remData.reminder);
+    this.noteService.putRequest("note/addreminder?noteId=" + this.noteData.id + "&reminder=" + this.remData.reminder, null).subscribe(
+      (response: any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
+        }
+      }
+    );
+  }
+
+  getRemainder() {
+    this.notereminder = this.noteData.reminder;
+    console.log("Remainder "+this.notereminder);
+  }
+
+  removeremainder(){
+    this.noteService.putRequest("note/removereminder?noteId=" + this.noteData.id,null).subscribe(
+      (response : any) => {
+        if (response.statusCode === 1) {
+          this.dataService.changeMessage(response.statusMessage);
+          this.snackBar.open(response.statusMessage, "close", { duration: 2500 });
+        }
+      }
+    );
+  }
 }

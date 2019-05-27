@@ -9,6 +9,8 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { NoteComponent } from './component/note/note.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
+import { SearchComponent } from './component/search/search.component';
+import { RemainderComponent } from './component/remainder/remainder.component';
 const routes: Routes = [
   {
     path: '',
@@ -50,6 +52,14 @@ const routes: Routes = [
       {
         path: "archive",
         component: ArchiveComponent
+      },
+      {
+        path: "search",
+        component : SearchComponent
+      },
+      {
+        path : "ramainder",
+        component : RemainderComponent
       }
     ]
   }
