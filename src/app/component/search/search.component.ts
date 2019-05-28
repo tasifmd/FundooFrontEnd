@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
     this.dashBoard.currentMessage.subscribe(
       (response: any)=>{
         this.notes = response;
+        console.log("Search")
         console.log(this.notes);
       }
     );
