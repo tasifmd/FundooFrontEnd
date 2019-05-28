@@ -50,7 +50,7 @@ export class NoteComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Note pinned successfully")
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
@@ -86,9 +86,9 @@ export class NoteComponent implements OnInit {
     this.noteService.putRequest("note/removecollaborator?email=" + localStorage.getItem('email') + "&noteId=" + collabitems.id,null).subscribe(
       (response : any) => {
         if(response.statusCode === 1){
-          this.snackBar.open("Note removed from collab","close",{duration:2500});
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }else{
-          this.snackBar.open("Note not removed from collab","close",{duration:2500});
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );

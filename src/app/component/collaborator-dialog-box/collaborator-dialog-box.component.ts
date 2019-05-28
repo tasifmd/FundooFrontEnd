@@ -67,9 +67,9 @@ export class CollaboratorDialogBoxComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Collabotared note removed", "Close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         } else {
-          this.snackBar.open("Collabotared note not removed", "Close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );

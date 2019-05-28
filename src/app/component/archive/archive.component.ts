@@ -38,7 +38,7 @@ export class ArchiveComponent implements OnInit {
       (response:any)=>{
         if(response.statusCode === 1){
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Note unarchived","undo",{duration:2500});
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );

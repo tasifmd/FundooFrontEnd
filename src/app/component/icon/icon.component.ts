@@ -60,7 +60,7 @@ export class IconComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Note Trashed", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
@@ -72,9 +72,9 @@ export class IconComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Note archieved", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         } else {
-          this.snackBar.open("Note archieve failed", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
@@ -100,9 +100,9 @@ export class IconComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Label added to note", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         } else {
-          this.snackBar.open("Label is not added to note", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
@@ -121,9 +121,9 @@ export class IconComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Label removed from note", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         } else {
-          this.snackBar.open("Label is not removed from note", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
@@ -136,7 +136,7 @@ export class IconComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackBar.open("Note color changed", "close", { duration: 2500 });
+          this.snackBar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );

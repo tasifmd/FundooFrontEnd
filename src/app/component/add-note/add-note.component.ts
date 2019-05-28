@@ -32,12 +32,12 @@ export class AddNoteComponent implements OnInit {
         if(response.statusCode === 1){
           this.dataService.changeMessage(response.statusMessage);
           this.snackBar.open(
-            "Note created successfully","",{duration:2500}
+            response.statusMessage,"close",{duration:2500}
           );
         }
         else{
           this.snackBar.open(
-            "Note creation failed","",{duration:2500}
+            response.statusMessage,"close",{duration:2500}
           );
         }
       }

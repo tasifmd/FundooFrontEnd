@@ -35,9 +35,9 @@ export class LebelDialogboxComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackbar.open("Label created", "undo", { duration: 2500 })
+          this.snackbar.open(response.statusMessage,"close",{duration:2500});
         } else {
-          this.snackbar.open("Label creation failed", "undo", { duration: 2500 })
+          this.snackbar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
@@ -60,9 +60,9 @@ export class LebelDialogboxComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackbar.open("Label deleted", "", { duration: 2500 })
+          this.snackbar.open(response.statusMessage,"close",{duration:2500})
         } else {
-          this.snackbar.open("Label not deleted", "", { duration: 2500 });
+          this.snackbar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
@@ -76,9 +76,9 @@ export class LebelDialogboxComponent implements OnInit {
       (response: any) => {
         if (response.statusCode === 1) {
           this.dataService.changeMessage(response.statusMessage);
-          this.snackbar.open("Label updated", "", { duration: 2500 });
+          this.snackbar.open(response.statusMessage,"close",{duration:2500});
         } else {
-          this.snackbar.open("Label updation failed", "", { duration: 2500 });
+          this.snackbar.open(response.statusMessage,"close",{duration:2500});
         }
       }
     );
