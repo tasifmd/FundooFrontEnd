@@ -3,6 +3,7 @@
 
     <mat-chip-list #chipList>
       <mat-chip *ngIf="notereminder!=null">
+        <mat-icon>schedule</mat-icon>
         {{notereminder |  date:'medium'}}
         <mat-icon matChipRemove (click)="removeremainder()">cancel</mat-icon>
       </mat-chip>
@@ -73,7 +74,7 @@
     </button>
     <button mat-menu-item>
       <span>
-        <mat-icon style="">schedule</mat-icon>
+        <mat-icon>schedule</mat-icon>
         Pick data & Time
       </span>
     </button>

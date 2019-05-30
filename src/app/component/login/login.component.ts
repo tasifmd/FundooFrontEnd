@@ -42,20 +42,12 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.token);
           localStorage.setItem('email', this.user.email);
           localStorage.setItem('userName' , response.userName);
-          this.snackBar.open(
-            "Login Successfully",
-            "undo",
-            { duration: 2500 }
-          )
+          this.snackBar.open(response.statusMessage, "close", { duration: 2500 })
           this.router.navigate(['/dashboard']);
           
         } else {
           console.log(response);
-          this.snackBar.open(
-            "Login Failed",
-            "undo",
-            { duration: 2500 }
-          )
+          this.snackBar.open(response.statusMessage, "close", { duration: 2500 })
         }
       }
     )
