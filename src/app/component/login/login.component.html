@@ -1,32 +1,45 @@
-<div class = "main" fxLayout="column" fxLayoutAlign="center center" >
-  <mat-card class = "matCard">
-      <mat-card-title class="matCardTitle" fxLayoutAlign="center center">
-        <h2 class = "headertwo">FundooNotes</h2>
-      </mat-card-title>
-      <mat-card-subtitle class = "matCardSubTitle" fxLayoutAlign="center center">
-        <h2>Login</h2>
-      </mat-card-subtitle>
-      <div>
-        <form [formGroup]="loginForm">
+<div class="main" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="matCard">
+    <mat-card-title class="matCardTitle" fxLayoutAlign="center center">
+      <h2 class="headertwo">FundooNotes</h2>
+    </mat-card-title>
+    <mat-card-subtitle class="matCardSubTitle" fxLayoutAlign="center center">
+      <h2>Login</h2>
+    </mat-card-subtitle>
+    <div>
+      <form [formGroup]="loginForm">
+        <div>
+          <mat-form-field appearance="outline" class="input-style">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Enter your email" formControlName="email" [(ngModel)]="user.email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+            <mat-icon matSuffix> email</mat-icon>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="input-style">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Enter your password" [type]="!hide ? 'password' : 'text'"
+              formControlName="password" [(ngModel)]="user.password" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="buttonRegister">
+          <button mat-raised-button color="primary" id="login" (click)="onLogin()">Login</button>
+          <button mat-raised-button color="primary" id="forgot" routerLink='/forgotpassword'> Forgot Password </button>
+        </div>
+        <div fxLayout="row" style="padding-left: 3%"> 
           <div>
-            <mat-form-field appearance="outline" class="input-style">
-              <mat-label>Email</mat-label>
-              <input type="email" matInput placeholder="Enter your email" formControlName="email" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-              <mat-icon matSuffix> email</mat-icon>
-            </mat-form-field>
+            <mat-icon (click)="socialSignIn('facebook')">
+              <img src="../../../assets/fbicon.png" style="height: 35px;">
+            </mat-icon>
           </div>
-          <div>
-            <mat-form-field appearance="outline" class="input-style">
-              <mat-label>Password</mat-label>
-              <input type="password" matInput placeholder="Enter your password" [type]="!hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="user.password" required>
-              <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </mat-form-field>
+          <div style="padding-left: 5%;padding-top: 2%;">
+            Sign in with Facebook
           </div>
-          <div class="buttonRegister">
-            <button mat-raised-button color="primary" id="login" (click)="onLogin()">Login</button>
-            <button mat-raised-button color="primary" id="forgot" routerLink='/forgotpassword'> Forgot Password </button>
-          </div>
-        </form>
-      </div>
+        </div>
+      </form>
+    </div>
+
   </mat-card>
 </div>

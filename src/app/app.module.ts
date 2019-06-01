@@ -1,3 +1,7 @@
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { FacebookLoginProvider } from 'angularx-social-login';
+import { AuthServiceConfig } from 'angularx-social-login';
+import { SocialLoginModule } from 'angularx-social-login';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,6 +40,23 @@ import { ProfileDialogComponent } from './component/profile-dialog/profile-dialo
 import { SearchComponent } from './component/search/search.component';
 import { RemainderComponent } from './component/remainder/remainder.component';
 
+
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("251657235707251")
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider("Your-Google-Client-Id")
+      }
+
+    ]
+  );
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -81,11 +102,15 @@ import { RemainderComponent } from './component/remainder/remainder.component';
     ReactiveFormsModule,
     MatDialogModule,
     RouterModule,
-    ImageCropperModule
+    ImageCropperModule,
+    SocialLoginModule
   ],
-  providers: [],
-  entryComponents:[DialogboxComponent,LebelDialogboxComponent,CollaboratorDialogBoxComponent,ProfileDialogComponent],
+  providers: [{
+    provide: AuthServiceConfig,
+    useFactory: getAuthServiceConfigs
+  }],
+  entryComponents: [DialogboxComponent, LebelDialogboxComponent, CollaboratorDialogBoxComponent, ProfileDialogComponent],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

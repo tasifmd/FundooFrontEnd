@@ -23,6 +23,7 @@ export class DashBoardComponent implements OnInit {
   user: LoginModel = new LoginModel();
   allLabels: any[];
   message : any;
+  socialLoginFlag : boolean;
   private obtainNotes = new BehaviorSubject([]);
   currentMessage = this.obtainNotes.asObservable();
   constructor(private router: Router, public dialog: MatDialog, private labelService: LabelService, private httpService: HttpService, private snackBar: MatSnackBar, private dataService: DataService, private noteService: NoteService) {

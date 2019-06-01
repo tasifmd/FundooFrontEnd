@@ -26,7 +26,8 @@
           <button mat-icon-button class="search-button">
             <mat-icon matTooltip="Search">search</mat-icon>
           </button>
-          <input fxFlex="90" matInput placeholder="Search" [style.fontSize.px]="16" (input)="onSearchChange($event.target.value)" class="search-window" autocomplete="off"/>
+          <input fxFlex="90" matInput placeholder="Search" [style.fontSize.px]="16"
+            (input)="onSearchChange($event.target.value)" class="search-window" autocomplete="off" />
         </mat-form-field>
       </div>
 
@@ -54,9 +55,12 @@
     <mat-menu #accountmenu="matMenu">
       <mat-card style="height: 120px;width: 245px;">
         <div fxLayout="row">
+
           <button mat-button (click)=profileDialog()>
             <img mat-card-avatar src="http://localhost:8080/user/getuploadedimage/{{token}}" />
           </button>
+
+
         </div>
         <span> {{name}} </span>
         <br>
