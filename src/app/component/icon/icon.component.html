@@ -2,7 +2,7 @@
   <div fxLayout="row wrap" style="visibility: visible">
 
     <mat-chip-list #chipList>
-      <mat-chip *ngIf="notereminder!=null">
+      <mat-chip *ngIf="notereminder!=null" class="chips">
         <mat-icon>schedule</mat-icon>
         {{notereminder |  date:'medium'}}
         <mat-icon matChipRemove (click)="removeremainder()">cancel</mat-icon>
@@ -15,7 +15,7 @@
     </div>
 
     <mat-chip-list #chipList>
-      <mat-chip *ngFor="let items of labelsOfNotes">
+      <mat-chip *ngFor="let items of labelsOfNotes" class="chips">
         {{ items.labelName }}
         <mat-icon matChipRemove (click)="removeLabelFromNote(items)">cancel</mat-icon>
       </mat-chip>

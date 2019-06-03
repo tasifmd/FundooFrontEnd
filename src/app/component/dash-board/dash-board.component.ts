@@ -45,6 +45,7 @@ export class DashBoardComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('userName');
+    localStorage.removeItem('photoUrl');
     this.router.navigate(['/login']);
   }
   openDialogLabel(): void {

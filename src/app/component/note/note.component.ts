@@ -34,9 +34,11 @@ export class NoteComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogboxComponent, {
       width: '600px', height: '230px',
       data: {
+        note : items,
         title: items.title,
         description: items.description,
-        noteId: items.id
+        noteId: items.id,
+        color: items.colorCode
       }
     });
 
@@ -64,14 +66,6 @@ export class NoteComponent implements OnInit {
       }
     )
   }
-
-  // getLabelOfNote(items) {
-  //   this.noteService.getRequest("label/getlebelofnote?noteId=" + items.id).subscribe(
-  //     (response : any ) =>{
-  //       this.labelsOfNotes = response;
-  //     }
-  //   );
-  // }
 
   getCollaboratedNotes(){
     this.noteService.getRequest("note/getallcollaboratednotes").subscribe(
